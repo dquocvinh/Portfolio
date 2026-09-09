@@ -8,11 +8,27 @@
         "imageUrl": "/qualifications/c1.pdf"
     },
     {
-        "title": "AWS Certified Solutions Architect – Associate",
-        "issuer": "Amazon Web Services",
-        "date": "2024",
-        "desc": "Certified competency in designing distributed systems, scalable architectures, and cost-optimized solutions on AWS cloud infrastructure.",
-        "verifyUrl": "https://aws.amazon.com",
-        "imageUrl": "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_512x512.3e2f4b0c6e5f8a1b7c9e3f8d5e5f8a1b.png"
+        "title": "Google Workspace with Gemini",
+        "issuer": "Google / Coursera",
+        "date": "2026",
+        "desc": "Completed the Google Workspace with Gemini certification authorized by Google and offered through Coursera.",
+        "verifyUrl": "https://coursera.org/verify/9K830VKNA1CE",
+        "imageUrl": "/qualifications/Coursera_9K830VKNA1CE.pdf"
+    },
+    {
+        "title": "Google AI",
+        "issuer": "Google / Coursera",
+        "date": "2026",
+        "desc": "Completed the Google AI certification authorized by Google and offered through Coursera.",
+        "verifyUrl": "https://coursera.org/verify/KDE2FM7V2GKC",
+        "imageUrl": "/qualifications/Coursera_KDE2FM7V2GKC.pdf"
+    },
+    {
+        "title": "Vibe Coding for Developers",
+        "issuer": "Coursera",
+        "date": "2026",
+        "desc": "Completed Vibe Coding for Developers course offered through Coursera.",
+        "verifyUrl": "https://coursera.org/verify/VUDXK6LWG5WL",
+        "imageUrl": "/qualifications/Coursera_VUDXK6LWG5WL.pdf"
     }
 ]

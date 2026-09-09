@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Section } from './Section';
 import { SectionTitle } from './SectionTitle';
-import AboutImg from '../assets/about_image1.jpg';
+const BASE_URL = import.meta.env.BASE_URL;
+const PORTRAIT_PHOTO = `${BASE_URL}portrait-photo.png`;
 
 const About = () => (
   <Section id="about">
@@ -61,17 +62,14 @@ const About = () => (
         className="flex flex-col items-center gap-8"
       >
         <div className="relative group w-full max-w-md">
-          <div className="absolute inset-0 bg-gradient-to-tr from-coffee-300 to-gold-300 rounded-2xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-          <div className="relative aspect-square rounded-2xl bg-white border border-sand-100 flex items-center justify-center overflow-hidden shadow-2xl hover:border-coffee-300/30 transition-all">
-            <div className="text-center p-8">
-              <div className="text-coffee-300/50 mx-auto mb-4">
-                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
-                </svg>
-              </div>
-              <p className="text-sand-200 text-sm">Your Photo Here</p>
-            </div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-coffee-300 via-gold-300 to-gold-400 rounded-2xl blur-2xl opacity-25 group-hover:opacity-45 transition-opacity duration-500"></div>
+          <div className="relative aspect-[4/5] sm:aspect-square rounded-2xl bg-white border border-sand-100/80 overflow-hidden shadow-2xl group-hover:border-gold-300/50 transition-all duration-300">
+            <img
+              src={PORTRAIT_PHOTO}
+              alt="Dương Quốc Vinh"
+              className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-espresso-100/30 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-300" />
           </div>
         </div>
 

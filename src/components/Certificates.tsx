@@ -44,17 +44,13 @@ const Certificates = () => {
               >
                 {cert.imageUrl ? (
                   cert.imageUrl.endsWith('.pdf') ? (
-                    <div className="w-full h-full bg-gradient-to-br from-cream-100 via-sand-50 to-cream-200 flex flex-col items-center justify-center p-6 relative overflow-hidden border-b border-sand-100/60">
-                      <Award className="absolute -right-6 -bottom-6 w-36 h-36 text-coffee-300/10 transform -rotate-12 pointer-events-none" />
-                      <div className="relative z-10 flex flex-col items-center text-center">
-                        <div className="w-14 h-14 rounded-2xl bg-white/90 shadow-sm border border-sand-100 flex items-center justify-center text-coffee-300 mb-3 group-hover:scale-110 group-hover:bg-coffee-300 group-hover:text-white transition-all duration-300">
-                          <FileText size={28} />
-                        </div>
-                        <span className="text-xs font-semibold tracking-wider text-taupe-200 uppercase bg-white/80 px-2.5 py-0.5 rounded-full border border-sand-100 shadow-xs mb-1">
-                          {cert.issuer}
-                        </span>
-                        <span className="text-xs text-coffee-300/80 font-medium">PDF Certificate Document</span>
-                      </div>
+                    <div className="w-full h-full relative group overflow-hidden border-b border-sand-100/60">
+                      <iframe
+                        src={`${cert.imageUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+                        title={cert.title}
+                        className="w-full h-full border-none pointer-events-none scale-100"
+                      />
+                      <div className="absolute inset-0 bg-espresso-100/10 group-hover:bg-espresso-100/0 transition-colors" />
                     </div>
                   ) : (
                     <img
@@ -76,12 +72,6 @@ const Certificates = () => {
                 <span className="absolute top-3 right-3 bg-white/90 text-coffee-300 text-xs px-2.5 py-1 rounded-full flex items-center gap-1 backdrop-blur-md border border-sand-100 shadow-sm z-10 font-medium">
                   <CheckCircle size={12} className="text-gold-300" /> Verified
                 </span>
-
-                <div className="absolute inset-0 bg-espresso-100/20 backdrop-blur-[2px] transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 z-20">
-                  <span className="bg-white text-espresso-100 text-sm px-5 py-2.5 rounded-full font-semibold border border-sand-100 shadow-xl flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <Award size={18} className="text-coffee-300" /> View Certificate
-                  </span>
-                </div>
               </div>
 
               <div className="p-6 flex-1 flex flex-col">
