@@ -19,25 +19,26 @@
 
 ---
 
-## Education
+## Education (Trình độ học vấn & Bằng cấp)
 
-- **Degree**: Bachelor of Science in Computer Science — AI Specialization
-- **University**: Ton Duc Thang University (TDTU), Ho Chi Minh City, Vietnam
-- **Expected Graduation**: 2027
-- **Major**: Computer Science (AI)
-- **Focus Areas**: Deep Learning & MLOps
-- **Core Coursework**: Deep Learning, Natural Language Processing, Computer Vision, Machine Learning, Data Structures & Algorithms, Database Systems
+- **Trình độ học vấn / Degree**: Bachelor of Science in Computer Science — AI Specialization (Cử nhân Khoa học Máy tính — Chuyên ngành Trí tuệ nhân tạo AI)
+- **Trường đại học / University**: Ton Duc Thang University (TDTU) — Trường Đại học Tôn Đức Thắng, TP. Hồ Chí Minh
+- **Năm học / Current Status**: Sinh viên năm 4 / năm cuối (4th-year / Senior AI Engineering Student)
+- **Thời gian dự kiến tốt nghiệp / Expected Graduation**: 2027
+- **Chuyên ngành / Major**: Computer Science (AI) — Khoa học Máy tính
+- **Lĩnh vực trọng tâm / Focus Areas**: Deep Learning & MLOps
+- **Các môn học cốt lõi / Core Coursework**: Deep Learning, Natural Language Processing (NLP), Computer Vision, Machine Learning, Data Structures & Algorithms, Database Systems
 
 ---
 
-## About Me
+## About Me (Giới thiệu bản thân)
 
-I'm an AI Engineering student at Ton Duc Thang University, building end-to-end machine learning solutions — from model training to production deployment.
+I'm an AI Engineering student at Ton Duc Thang University (TDTU), building end-to-end machine learning solutions — from model training to production deployment.
 
 My work spans NLP, Computer Vision, and Generative AI, with hands-on experience fine-tuning transformer models (BERT, BLIP), building RAG pipelines with LangChain, and deploying ML applications on cloud platforms. I'm driven by turning research into real-world impact.
 
 Key highlights:
-- Major: Computer Science (AI)
+- Major: Computer Science (AI) — Sinh viên năm 4 Đại học Tôn Đức Thắng (TDTU)
 - Focus: Deep Learning & MLOps
 - Location: Ho Chi Minh City
 - Status: Open for Internships (Đang tìm chỗ thực tập, chưa có chỗ thực tập)

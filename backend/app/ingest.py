@@ -1,14 +1,9 @@
 """
-Data Ingestion Script for Dx9029 RAG Chatbot.
+Data Ingestion Script for Dx9029 RAG Chatbot (Local FAISS Vector DB).
 
 Reads the knowledge base markdown, splits it into chunks,
-generates embeddings via Google text-embedding-004 API,
-and upserts into Pinecone.
-
-NOTE: text-embedding-004 produces 768-dimension vectors.
-If migrating from all-MiniLM-L6-v2 (384-dim), you MUST:
-  1. Delete the existing Pinecone index (dimension mismatch)
-  2. Run this ingest script to recreate with 768-dim vectors
+generates embeddings via Google gemini-embedding-2 API,
+and saves a local FAISS index file to backend/data/faiss_index.
 
 Usage:
     cd backend
@@ -16,8 +11,7 @@ Usage:
 """
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_pinecone import PineconeVectorStore
-from pinecone import Pinecone, ServerlessSpec
+from langchain_community.vectorstores import FAISS
 
 from . import config
 from .rag_engine import get_embeddings_for_ingest
@@ -42,27 +36,8 @@ def chunk_text(text: str) -> list:
     return chunks
 
 
-def ensure_pinecone_index():
-    """Create the Pinecone index if it doesn't exist."""
-    pc = Pinecone(api_key=config.PINECONE_API_KEY)
-    existing_indexes = [idx.name for idx in pc.list_indexes()]
-
-    if config.PINECONE_INDEX_NAME not in existing_indexes:
-        print(f"Creating Pinecone index: {config.PINECONE_INDEX_NAME}")
-        pc.create_index(
-            name=config.PINECONE_INDEX_NAME,
-            dimension=3072,  # Google gemini-embedding-2 output dimension
-            metric="cosine",
-            spec=ServerlessSpec(cloud="aws", region="us-east-1"),
-        )
-        print("Index created successfully!")
-    else:
-        print(f"Index '{config.PINECONE_INDEX_NAME}' already exists.")
-
-
 def ingest():
-    """Main ingestion pipeline."""
-    # Validate config
+    """Main ingestion pipeline for Local FAISS Store."""
     missing = config.validate_config()
     if missing:
         raise RuntimeError(
@@ -71,50 +46,36 @@ def ingest():
         )
 
     print("=" * 60)
-    print("Dx9029 — Knowledge Base Ingestion")
+    print("Dx9029 — Local Knowledge Base Ingestion (FAISS)")
     print("=" * 60)
 
-    # Step 1: Ensure Pinecone index exists
-    print("\n[1/4] Checking Pinecone index...")
-    ensure_pinecone_index()
-
-    # Step 2: Load knowledge base
-    print("\n[2/4] Loading knowledge base...")
+    # Step 1: Load knowledge base
+    print("\n[1/3] Loading knowledge base...")
     text = load_knowledge_base()
     print(f"  Loaded {len(text)} characters from {config.KNOWLEDGE_BASE_PATH.name}")
 
-    # Step 3: Chunk text
-    print("\n[3/4] Splitting into chunks...")
+    # Step 2: Chunk text
+    print("\n[2/3] Splitting into chunks...")
     chunks = chunk_text(text)
     print(f"  Created {len(chunks)} chunks (size={config.CHUNK_SIZE}, overlap={config.CHUNK_OVERLAP})")
 
-    # Step 4: Embed and upsert to Pinecone
-    print("\n[4/4] Embedding and upserting to Pinecone...")
+    # Step 3: Embed and save to Local FAISS
+    print("\n[3/3] Generating embeddings & saving Local FAISS index...")
     embeddings = get_embeddings_for_ingest()
 
-    pc = Pinecone(api_key=config.PINECONE_API_KEY)
-    index = pc.Index(config.PINECONE_INDEX_NAME)
-
-    # Clear existing vectors before re-ingesting
-    try:
-        index.delete(delete_all=True)
-        print("  Cleared existing vectors.")
-    except Exception:
-        print("  No existing vectors to clear (or namespace empty).")
-
-    # Upsert new vectors
-    PineconeVectorStore.from_documents(
-        documents=chunks,
-        embedding=embeddings,
-        index_name=config.PINECONE_INDEX_NAME,
-    )
+    vector_store = FAISS.from_documents(chunks, embeddings)
+    
+    # Save index locally
+    config.VECTORSTORE_DIR.mkdir(parents=True, exist_ok=True)
+    vector_store.save_local(folder_path=str(config.VECTORSTORE_DIR))
 
     print(f"\n{'=' * 60}")
-    print(f"Successfully ingested {len(chunks)} chunks into Pinecone!")
-    print(f"   Index: {config.PINECONE_INDEX_NAME}")
+    print(f"Successfully ingested {len(chunks)} chunks into Local FAISS DB!")
+    print(f"   Directory: {config.VECTORSTORE_DIR}")
     print(f"   Embedding model: {config.EMBEDDING_MODEL}")
     print(f"{'=' * 60}")
 
 
 if __name__ == "__main__":
     ingest()
+

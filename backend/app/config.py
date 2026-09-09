@@ -15,9 +15,8 @@ load_dotenv(_backend_dir / ".env")
 GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
 GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
-# --- Pinecone ---
-PINECONE_API_KEY: str = os.getenv("PINECONE_API_KEY", "")
-PINECONE_INDEX_NAME: str = os.getenv("PINECONE_INDEX_NAME", "portfolio-rag")
+# --- Local Vector DB (FAISS) ---
+VECTORSTORE_DIR: Path = _backend_dir / "data" / "faiss_index"
 
 # --- Google Embeddings (gemini-embedding-2, 3072-dim) ---
 EMBEDDING_MODEL: str = os.getenv(
@@ -38,6 +37,4 @@ def validate_config() -> list[str]:
     missing = []
     if not GOOGLE_API_KEY:
         missing.append("GOOGLE_API_KEY")
-    if not PINECONE_API_KEY:
-        missing.append("PINECONE_API_KEY")
     return missing
