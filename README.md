@@ -1,154 +1,153 @@
-# Portfolio Website — Cappuccino Theme (Vite)
+# Dx9029 — AI Engineering & Full-stack Portfolio Website
 
-## Overview
+A modern, high-performance portfolio website for **Dương Quốc Vinh (Dx9029)** featuring an **AI RAG Assistant Chatbot** powered by **Gemini 3.6 Flash** and **Pinecone Vector Database**.
 
-A landing portfolio website built with **Vite + React + TypeScript + Tailwind CSS + Framer Motion**. Inspired by the existing `referedFile.tsx` (Next.js/Next.js dark theme) but rebuilt from scratch with a **yellow-white Cappuccino** color palette — warm, earthy, and editorial.
+Designed with a warm **Cappuccino Yellow-White** editorial theme, built with **Vite + React + TypeScript + Tailwind CSS + Framer Motion**, and backed by a **FastAPI** RAG microservice.
 
-## Theme: Cappuccino Yellow-White
+---
 
-### Color Palette
+## ✨ Features & Architecture
 
-| Role | Token | Hex | Usage |
-|------|-------|-----|-------|
-| BG primary | `--bg-cream` | `#FAF6EF` | Page background |
-| BG secondary | `--bg-sand` | `#F0E6D4` | Alternating section backgrounds |
-| Surface | `--surface` | `#FFFFFF` | Cards, modals, surfaces |
-| Primary accent | `--accent-gold` | `#C8963E` | CTAs, highlights, active states |
-| Secondary accent | `--accent-coffee` | `#6B4C3B` | Headings, strong text |
-| Body text | `--text-dark` | `#2C2416` | Main content text |
-| Muted text | `--text-muted` | `#9C8E7A` | Descriptions, captions |
-| Border | `--border-sand` | `#D4C5A9` | Dividers, card borders |
-| Hover glow | `--glow-gold` | `#E8C56D` | Interactive feedback |
+- 🎨 **Cappuccino Design System**: Warm, elegant, editorial palette (`#FAF6EF` cream background, `#C8963E` gold accents, `#6B4C3B` coffee headings) with glassmorphism and subtle animations.
+- 🤖 **Dx9029 RAG AI Chatbot**:
+  - **Pinecone Vector Search**: Semantic retrieval over full portfolio & resume knowledge base (`all-MiniLM-L6-v2` embeddings).
+  - **Gemini 3.6 Flash LLM**: Generates accurate, context-aware answers in both Vietnamese & English.
+  - **Smart Token Saver**: Pre-defined local Q&A answers for common questions to eliminate unnecessary LLM token usage.
+  - **Markdown Response Formatter**: Renders bold, italics, bullet points, and clean paragraphs nicely.
+- 📄 **Interactive Portfolio**: Projects showcase, skills categorization, experience timeline, certificate view modal, and direct contact popups (Zalo, Email).
+- 🚀 **Full-stack Setup**: Decoupled architecture allowing independent deployment (Frontend on **GitHub Pages**, Backend on **Render**).
 
-### Typography
+---
 
-- **Headings**: Playfair Display (serif) — warm, editorial tone
-- **Body**: DM Sans (sans-serif) — clean readability
-- **Mono**: JetBrains Mono — tags, code snippets, metadata
+## 🛠️ Tech Stack
 
-## Project Structure
+### Frontend
+- **Framework**: React 18 + TypeScript + Vite
+- **Styling**: Tailwind CSS, CSS Custom Property tokens
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+
+### Backend (AI & RAG Microservice)
+- **API Framework**: FastAPI + Uvicorn
+- **LLM**: Google Gemini 3.6 Flash (`langchain-google-genai`)
+- **Vector DB**: Pinecone (`langchain-pinecone`)
+- **Embeddings**: `sentence-transformers/all-MiniLM-L6-v2` (`langchain-huggingface`)
+- **Pipeline Orchestration**: LangChain LCEL
+
+---
+
+## 📁 Project Structure
 
 ```
-portfolio/
-├── public/
-│   ├── homepage1.png              # experience section background
-│   ├── homepage2.png              # projects section background
-│   ├── duongquocvinh_resume.pdf
-│   └── profile.jpg
-├── src/
-│   ├── components/
-│   │   ├── Navbar.tsx             # Fixed, scroll-aware nav
-│   │   ├── Section.tsx            # Reusable section wrapper
-│   │   ├── SectionTitle.tsx       # Section heading with subtitle
-│   │   ├── ProjectCard.tsx        # Project card with sandbox preview
-│   │   ├── SocialContactPopup.tsx # Reusable popup component
-│   │   ├── CertificateModal.tsx   # Certificate detail modal
-│   │   ├── TypewriterText.tsx     # Typewriter animation component
-│   │   └── skills/
-│   │       ├── SkillCategory.tsx  # Individual skill category
-│   │       └── SkillsGrid.tsx     # Skills grid layout
-│   ├── data/
-│   │   ├── projects.json          # Project data (user fills in)
-│   │   ├── certificates.json      # Certificate data (user fills in)
-│   │   ├── experience.json        # Experience data (user fills in)
-│   │   └── skills.json            # Skills data (user fills in)
-│   ├── hooks/
-│   │   └── useScrollReveal.ts     # Scroll-reveal animation hook
-│   ├── styles/
-│   │   ├── index.css              # Tailwind imports + base styles
-│   │   └── theme.css              # CSS custom property theme tokens
-│   ├── App.tsx                    # Main app with all sections
-│   ├── main.tsx                   # Entry point
-│   └── vite-env.d.ts
+Portfolio/
+├── run_dev.bat                   # 🚀 Auto-launch script (Venv check, Pip install, Uvicorn & Vite)
 ├── index.html
+├── package.json
 ├── vite.config.ts
 ├── tailwind.config.ts
-├── postcss.config.js
-├── tsconfig.json
-└── package.json
+├── src/                          # Frontend Source Code
+│   ├── components/
+│   │   ├── Navbar.tsx            # Floating scroll-aware navigation
+│   │   ├── Hero.tsx              # Hero section with interactive CTA & Zalo popup
+│   │   ├── About.tsx             # Profile info & experience cards
+│   │   ├── ProjectCard.tsx       # Interactive project showcase
+│   │   ├── ChatbotWidget.tsx     # Dx9029 RAG Chatbot UI widget
+│   │   ├── CertificateModal.tsx  # Certificate detail viewer
+│   │   └── SocialContactPopup.tsx# Quick contact modal (Zalo, Email, Phone)
+│   ├── data/                     # Static portfolio content
+│   │   ├── projects.json
+│   │   ├── certificates.json
+│   │   ├── experience.json
+│   │   └── skills.json
+│   └── styles/
+│       ├── index.css
+│       └── theme.css
+└── backend/                      # RAG Backend Microservice
+    ├── requirements.txt
+    ├── .env                      # API keys (GOOGLE_API_KEY, PINECONE_API_KEY)
+    ├── data/
+    │   └── knowledge_base.md    # Portfolio RAG Knowledge Base
+    └── app/
+        ├── main.py               # FastAPI app & CORS middleware
+        ├── config.py             # Environment configurations
+        ├── rag_engine.py         # Pinecone + Gemini 3.6 Flash LCEL chain
+        └── ingest.py             # Knowledge base chunking & Pinecone upsert script
 ```
 
-## Key Patterns & Conventions
+---
 
-### Component Patterns (from referedFile.tsx, adapted)
+## 🚀 Quick Start (Local Development)
 
-- **`Section` wrapper**: Accepts `id`, `className`, `style` (including `backgroundImage` for textured sections). Uses a full-bleed background div with `backdrop-blur` for overlay.
-- **`SectionTitle`**: Renders heading with a coffee-brown accent bar (`w-2 h-8 bg-accent-gold rounded-full`) and optional subtitle below.
-- **`Navbar`**: Fixed top, transparent by default, transitions to solid background on scroll (>50px). Logo with `Cpu` icon and site name links to `#hero`.
-- **`ProjectCard`**: Two states — default view (title, description, tags, external link + sandbox button) and preview mode (iframe sandbox). Uses `motion.div` with `whileInView` for entrance animation.
-- **`TypewriterText`**: Accepts `text`, `delay`, `speed`, `className`. Uses `setInterval` inside `useEffect` with cleanup.
+### Method 1: Using One-Click Batch Script (Recommended for Windows)
 
-### Data Fetching
+Double click `run_dev.bat` in the project root directory, or run in terminal:
 
-Unlike the Next.js version which uses `/api/*` routes, this Vite portfolio reads **static JSON files** from `/src/data/`. Data is fetched in `App.tsx` with `useEffect` + `useState` — no backend required.
-
-### Animations
-
-- **Scroll reveal**: Framer Motion `initial={{ opacity: 0, y: 20 }}`, `whileInView={{ opacity: 1, y: 0 }}`, `viewport={{ once: true }}`
-- **Hover effects**: Cards lift (`hover:-translate-y-1`) with gold shadow (`shadow-lg hover:shadow-gold-gold/20`)
-- **Navbar**: Transitions background on scroll using `window.addEventListener('scroll')`
-
-### JSON Data Schemas
-
-Projects (`/src/data/projects.json`):
-```json
-[]
+```cmd
+.\run_dev.bat
 ```
-Each item: `{ "title": string, "desc": string, "link": string, "tags": string[], "color": string (gradient classes), "image": string }`
 
-Certificates (`/src/data/certificates.json`):
-```json
-[]
-```
-Each item: `{ "title": string, "issuer": string, "date": string, "desc": string, "verifyUrl": string, "imageUrl": string }`
+This script will automatically:
+1. Check & create Python `venv` in `backend/venv` if missing.
+2. Activate `venv` and install/update all dependencies from `backend/requirements.txt`.
+3. Check & run `npm install` for frontend dependencies.
+4. Spawn FastAPI server on **`http://127.0.0.1:8000`** in a dedicated window.
+5. Launch Vite dev server on **`http://localhost:3000`**.
 
-Experience (`/src/data/experience.json`):
-```json
-[]
-```
-Each item: `{ "year": string, "role": string, "org": string, "desc": string }`
+---
 
-Skills (`/src/data/skills.json`):
-```json
-[]
-```
-Each item: `{ "category": string, "icon": string (lucide icon name), "items": string[] }`
+### Method 2: Manual Start
 
-## Development Commands
-
+#### 1. Start Backend (FastAPI + RAG)
 ```bash
-# Install dependencies
-npm install
+cd backend
+python -m venv venv
+# On Windows:
+.\venv\Scripts\activate
 
-# Start dev server
-npm run dev
+pip install -r requirements.txt
 
-# Build for production
-npm run build
+# (Optional) Ingest knowledge base to Pinecone index:
+python -m app.ingest
 
-# Preview production build
-npm run preview
+# Run Uvicorn server:
+uvicorn app.main:app --reload --port 8000
 ```
 
-## Setup Steps
+#### 2. Start Frontend (Vite + React)
+Open another terminal in root directory:
+```bash
+npm install
+npm run dev
+```
+Open browser at `http://localhost:3000`.
 
-1. Initialize Vite: `npm create vite@latest portfolio -- --template react-ts`
-2. Install deps: `npm install framer-motion lucide-react react-router-dom tailwindcss @tailwindcss/vite`
-3. Configure `tailwind.config.ts` with Cappuccino custom colors and `theme.css` with CSS custom properties
-4. Create the directory structure above
-5. Build sections incrementally (Phase 1 → Phase 5)
+---
 
-## Design Principles
+## 🔑 Environment Variables (`backend/.env`)
 
-- **Warmth**: Every surface, border, and accent should feel warm and inviting
-- **Spaciousness**: Generous padding and margins; let the content breathe
-- **Contrast**: Dark charcoal text on cream background; coffee brown headings on white
-- **Motion**: Purposeful animations — fade-ins on scroll, subtle lifts on hover, no gratuitous movement
-- **Responsiveness**: Mobile-first; breakpoints at `md` (768px) and `lg` (1024px)
+Create a `.env` file inside `backend/` directory:
 
-## What NOT to Include
+```env
+GOOGLE_API_KEY=your_google_gemini_api_key
+PINECONE_API_KEY=your_pinecone_api_key
+PINECONE_INDEX_NAME=portfolio-rag
+GEMINI_MODEL=gemini-3.6-flash
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+```
 
-- **No mock-up data**: All JSON files start as empty arrays `[]` — the user will fill them in
-- **No API routes**: Data is static JSON, not server-side fetched
-- **No Next.js/App Router**: Pure Vite + React + Browser Router (or hash routing)
-- **No cyan/blue dark theme**: Stick to the Cappuccino palette exclusively
+---
+
+## 🌐 Deployment Guide
+
+- **Frontend**: Deployed to **GitHub Pages** via `npm run deploy-gh`.
+- **Backend**: Deployed to **Render** as a Python Web Service (`uvicorn app.main:app --host 0.0.0.0 --port $PORT`).
+
+---
+
+## 📬 Contact Information
+
+- **Developer**: Dương Quốc Vinh (Vinh Duong)
+- **Role**: AI Engineering Intern / Full-stack Developer
+- **Email**: [duongquocvinh9029@gmail.com](mailto:duongquocvinh9029@gmail.com)
+- **Zalo / Phone**: `0559149285`
+- **GitHub**: [github.com/vinh9029](https://github.com/vinh9029)

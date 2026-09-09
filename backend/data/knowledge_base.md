@@ -9,7 +9,7 @@
 - **Bio**: Hi, I'm Vinh. An AI Engineering Student passionate about Machine Learning, Deep Learning, and solving real-world problems with code.
 - **Quote**: "I don't just build models — I build solutions that people can actually use." — From research to production.
 - **Location**: Ho Chi Minh City, Vietnam
-- **Status**: Available for Internships
+- **Status**: Available for Internships (Hiện đang tìm kiếm cơ hội thực tập, chưa có chỗ thực tập)
 - **Email**: duongquocvinh9029@gmail.com
 - **GitHub**: https://github.com/vinh9029
 - **LinkedIn**: https://www.linkedin.com/in/d%C6%B0%C6%A1ng-qu%E1%BB%91c-vinh-619b51412/
@@ -40,7 +40,7 @@ Key highlights:
 - Major: Computer Science (AI)
 - Focus: Deep Learning & MLOps
 - Location: Ho Chi Minh City
-- Status: Open for Internships
+- Status: Open for Internships (Đang tìm chỗ thực tập, chưa có chỗ thực tập)
 
 ---
 
@@ -172,8 +172,8 @@ Key highlights:
 
 ## Frequently Asked Questions
 
-### What is Vinh currently looking for?
-Vinh is currently looking for internship opportunities or collaboration on AI projects. He is open for hire and available for internships.
+### What is Vinh currently looking for? (Vinh đang tìm kiếm gì? Vinh đã có chỗ thực tập chưa?)
+Vinh is currently looking for internship opportunities or collaboration on AI projects. He is open for hire and available for internships. (Vinh hiện đang tìm kiếm cơ hội thực tập và làm việc trong lĩnh vực AI. Vinh chưa có chỗ thực tập và đang sẵn sàng cho công việc thực tập.)
 
 ### What makes Vinh stand out?
 Vinh has hands-on experience across the full ML pipeline — from research and model training to deployment. He has worked with cutting-edge technologies like BERT, BLIP, RAG, LangChain, and LLMs. He builds end-to-end solutions, not just models.

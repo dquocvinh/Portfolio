@@ -26,13 +26,19 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",          # Vite dev server
+        "http://localhost:3000",          # Vite dev server (vite.config.ts port)
+        "http://127.0.0.1:3000",          # Vite dev server (IP)
+        "http://localhost:5173",          # Vite dev server default
+        "http://127.0.0.1:5173",          # Vite dev server (IP)
+        "http://localhost:5174",          # Vite dev server alt
+        "http://127.0.0.1:5174",          # Vite dev server alt (IP)
         "http://localhost:4173",          # Vite preview
-        "https://vinh9029.github.io",    # GitHub Pages
-        "https://523h0195-byte.github.io", # Alternative GitHub Pages
+        "http://127.0.0.1:4173",          # Vite preview (IP)
+        "https://vinh9029.github.io",     # GitHub Pages
+        "https://523h0195-byte.github.io",# Alternative GitHub Pages
     ],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
 

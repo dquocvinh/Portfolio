@@ -13,7 +13,7 @@ load_dotenv(_backend_dir / ".env")
 
 # --- Google Gemini ---
 GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
-GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3.6-flash")
 
 # --- Pinecone ---
 PINECONE_API_KEY: str = os.getenv("PINECONE_API_KEY", "")

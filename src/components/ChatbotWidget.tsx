@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, X, Sparkles, MessageCircle, ArrowDown } from 'lucide-react';
+import { Send, X, Sparkles, MessageCircle, ArrowDown, Maximize2, Minimize2 } from 'lucide-react';
 
 const BASE_URL = import.meta.env.BASE_URL;
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
@@ -13,11 +13,126 @@ interface Message {
   timestamp: Date;
 }
 
+// ── Predefined Q&A (Tiết kiệm token & phản hồi tức thì bằng Tiếng Việt) ──
+const PREDEFINED_QA: { question: string; answer: string }[] = [
+  {
+    question: "Vinh thành thạo những công nghệ gì?",
+    answer:
+      "Vinh tập trung chuyên sâu vào mảng **AI Engineering & Full-stack Development**:\n\n" +
+      "• **AI / Machine Learning**: PyTorch, LangChain, Transformers, Sentence-Transformers, RAG pipelines, OpenAI & Gemini APIs, Pinecone Vector DB.\n" +
+      "• **Backend**: Python (FastAPI, Flask), RESTful APIs, Uvicorn, Docker.\n" +
+      "• **Frontend**: React, TypeScript, Tailwind CSS, Framer Motion, Vite.\n" +
+      "• **Data & Tools**: Git, GitHub, Hugging Face Hub, Scikit-learn, Pandas, NumPy."
+  },
+  {
+    question: "Các dự án nổi bật của Vinh?",
+    answer:
+      "Một số dự án tiêu biểu mà Vinh đã xây dựng:\n\n" +
+      "• **Dx9029 RAG Chatbot Portfolio**: Trợ lý AI tích hợp RAG tìm kiếm ngữ nghĩa với *Pinecone* và LLM *Gemini*, deploy backend FastAPI.\n" +
+      "• **Document Analysis & Search System**: Hệ thống tra cứu và trích xuất thông tin thông minh từ tài liệu lớn ứng dụng Embedding models.\n" +
+      "• **Computer Vision & Deep Learning Projects**: Các bài toán phân loại hình ảnh, nhận diện đối tượng được huấn luyện với *PyTorch*.\n\n" +
+      "*Bạn có thể cuộn xuống phần Projects trên website để xem demo chi tiết và source code nhé!*"
+  },
+  {
+    question: "Vinh có đang tìm kiếm cơ hội làm việc không?",
+    answer:
+      "**Có!** Vinh hiện đang chủ động tìm kiếm các cơ hội thực tập hoặc vị trí công việc: **AI Engineer Intern / Junior AI Engineer** và **Software / Full-stack Developer**.\n\n" +
+      "• **Hình thức**: Full-time hoặc Part-time (Remote / On-site).\n" +
+      "• **Liên hệ trực tiếp**:\n" +
+      "  - 💼 LinkedIn: [Dương Quốc Vinh](https://www.linkedin.com/in/d%C6%B0%C6%A1ng-qu%E1%BB%91c-vinh-619b51412/)\n" +
+      "  - 📧 Email: **duongquocvinh9029@gmail.com**\n" +
+      "  - 📱 Zalo / Phone: **0559149285**"
+  },
+  {
+    question: "Học vấn và định hướng phát triển của Vinh?",
+    answer:
+      "Vinh theo học chuyên ngành liên quan đến **Công nghệ thông tin / Khoa học máy tính** với nền tảng vững chắc về Toán, Giải thuật và Trí tuệ nhân tạo.\n\n" +
+      "• **Định hướng**: Trở thành kỹ sư **AI Engineering** chuyên nghiệp, có khả năng đưa các mô hình AI/LLM hiện đại vào sản phẩm thực tế, tối ưu hiệu năng và giải quyết bài toán người dùng hiệu quả."
+  }
+];
+
+// Helper render Markdown đơn giản (hỗ trợ bold **, italics *, bullets • / -, newline)
+const FormattedMessage: React.FC<{ content: string; isUser: boolean }> = ({ content, isUser }) => {
+  if (isUser) {
+    return <div className="whitespace-pre-wrap break-words">{content}</div>;
+  }
+
+  const lines = content.split('\n');
+
+  const renderFormattedText = (text: string) => {
+    // Regex hỗ trợ: Markdown Link [Label](URL), Bold (**text**), Italics (*text*)
+    const parts = text.split(/(\[.*?\]\(https?:\/\/[^\s\)]+\)|\*\*.*?\*\*|\*.*?\*)/g);
+    return parts.map((part, index) => {
+      // Markdown Link [Label](URL)
+      const linkMatch = part.match(/^\[(.*?)\]\((https?:\/\/[^\s\)]+)\)$/);
+      if (linkMatch) {
+        return (
+          <a
+            key={index}
+            href={linkMatch[2]}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-coffee-300 font-semibold underline hover:text-gold-500 transition-colors inline-flex items-center gap-0.5"
+          >
+            {linkMatch[1]}
+          </a>
+        );
+      }
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return (
+          <strong key={index} className="font-semibold text-espresso-100">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      if (part.startsWith('*') && part.endsWith('*')) {
+        return (
+          <em key={index} className="italic text-espresso-100/85">
+            {part.slice(1, -1)}
+          </em>
+        );
+      }
+      return part;
+    });
+  };
+
+  return (
+    <div className="space-y-1.5 break-words">
+      {lines.map((line, idx) => {
+        const trimmed = line.trim();
+
+        // Xử lý bullet points
+        if (trimmed.startsWith('•') || trimmed.startsWith('-')) {
+          const bulletText = trimmed.replace(/^[•\-]\s*/, '');
+          return (
+            <div key={idx} className="flex items-start gap-2 pl-1 my-0.5">
+              <span className="text-coffee-300 font-bold select-none text-xs leading-5">•</span>
+              <span className="flex-1 leading-relaxed">{renderFormattedText(bulletText)}</span>
+            </div>
+          );
+        }
+
+        // Dòng trống
+        if (!trimmed) {
+          return <div key={idx} className="h-1.5" />;
+        }
+
+        // Dòng thông thường
+        return (
+          <p key={idx} className="leading-relaxed">
+            {renderFormattedText(line)}
+          </p>
+        );
+      })}
+    </div>
+  );
+};
+
 const SUGGESTED_QUESTIONS = [
-  "What's Vinh's tech stack?",
-  "Tell me about his projects",
-  "Is he available for hire?",
-  "What is his education?",
+  "Vinh thành thạo những công nghệ gì?",
+  "Các dự án nổi bật của Vinh?",
+  "Vinh có đang tìm kiếm cơ hội làm việc không?",
+  "Học vấn và định hướng phát triển của Vinh?",
 ];
 
 const TypingIndicator = () => (
@@ -38,6 +153,7 @@ const TypingIndicator = () => (
 
 const ChatbotWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +163,6 @@ const ChatbotWidget = () => {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-scroll to bottom on new messages
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, []);
@@ -56,14 +171,12 @@ const ChatbotWidget = () => {
     if (isOpen) scrollToBottom();
   }, [messages, isOpen, scrollToBottom]);
 
-  // Focus input when chat opens
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 300);
     }
   }, [isOpen]);
 
-  // Detect scroll position for scroll-to-bottom button
   const handleScroll = () => {
     const container = messagesContainerRef.current;
     if (!container) return;
@@ -71,25 +184,70 @@ const ChatbotWidget = () => {
     setShowScrollBtn(!isNearBottom);
   };
 
+  // Typewriter effect: Hiển thị nội dung câu trả lời từ từ (từng ký tự/từ)
+  const appendBotMessageWithTyping = useCallback((fullText: string) => {
+    const botMsgId = (Date.now() + 1).toString();
+    const timestamp = new Date();
+
+    // Khởi tạo tin nhắn bot rỗng
+    setMessages((prev) => [
+      ...prev,
+      { id: botMsgId, role: 'bot', content: '', timestamp },
+    ]);
+
+    let currentIndex = 0;
+    // Độ dài chunk mỗi bước để tốc độ mượt mà
+    const chunkSize = 2;
+    const interval = setInterval(() => {
+      currentIndex += chunkSize;
+      if (currentIndex >= fullText.length) {
+        setMessages((prev) =>
+          prev.map((msg) => (msg.id === botMsgId ? { ...msg, content: fullText } : msg))
+        );
+        clearInterval(interval);
+      } else {
+        const currentText = fullText.slice(0, currentIndex);
+        setMessages((prev) =>
+          prev.map((msg) => (msg.id === botMsgId ? { ...msg, content: currentText } : msg))
+        );
+      }
+    }, 18);
+  }, []);
+
   const sendMessage = async (text: string) => {
     if (!text.trim() || isLoading) return;
 
+    const trimmedText = text.trim();
     const userMsg: Message = {
       id: Date.now().toString(),
       role: 'user',
-      content: text.trim(),
+      content: trimmedText,
       timestamp: new Date(),
     };
 
     setMessages((prev) => [...prev, userMsg]);
     setInput('');
+
+    const matchedQA = PREDEFINED_QA.find(
+      (qa) => qa.question.toLowerCase() === trimmedText.toLowerCase()
+    );
+
+    if (matchedQA) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+        appendBotMessageWithTyping(matchedQA.answer);
+      }, 250);
+      return;
+    }
+
     setIsLoading(true);
 
     try {
       const res = await fetch(`${API_URL}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text.trim() }),
+        body: JSON.stringify({ message: trimmedText }),
       });
 
       if (!res.ok) {
@@ -97,23 +255,13 @@ const ChatbotWidget = () => {
       }
 
       const data = await res.json();
-      const botMsg: Message = {
-        id: (Date.now() + 1).toString(),
-        role: 'bot',
-        content: data.response,
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, botMsg]);
-    } catch (error) {
-      const errorMsg: Message = {
-        id: (Date.now() + 1).toString(),
-        role: 'bot',
-        content: "Sorry, I'm having trouble connecting to the server. Please try again later or contact Vinh directly at duongquocvinh9029@gmail.com 📧 or via Zalo: 0559149285 💬",
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, errorMsg]);
-    } finally {
       setIsLoading(false);
+      appendBotMessageWithTyping(data.response);
+    } catch {
+      setIsLoading(false);
+      const errorMsgText =
+        "Xin lỗi, hiện tại tôi đang gặp chút sự cố kết nối tới server. Bạn vui lòng thử lại sau hoặc liên hệ trực tiếp với Vinh qua Email: duongquocvinh9029@gmail.com 📧 hoặc Zalo: 0559149285 nhé!";
+      appendBotMessageWithTyping(errorMsgText);
     }
   };
 
@@ -168,7 +316,11 @@ const ChatbotWidget = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-3rem)] h-[560px] max-h-[calc(100vh-7.5rem)] flex flex-col rounded-2xl border border-sand-100/80 shadow-2xl overflow-hidden"
+            className={`fixed bottom-24 right-6 z-50 transition-all duration-300 ${
+              isExpanded
+                ? 'w-[680px] max-w-[calc(100vw-3rem)] h-[680px] max-h-[calc(100vh-7.5rem)]'
+                : 'w-[380px] max-w-[calc(100vw-3rem)] h-[560px] max-h-[calc(100vh-7.5rem)]'
+            } flex flex-col rounded-2xl border border-sand-100/80 shadow-2xl overflow-hidden`}
             style={{
               background: 'linear-gradient(135deg, rgba(250,246,239,0.97) 0%, rgba(255,253,247,0.97) 100%)',
               backdropFilter: 'blur(20px)',
@@ -187,8 +339,19 @@ const ChatbotWidget = () => {
                   Dx9029
                   <Sparkles size={14} className="text-gold-300" />
                 </h3>
-                <p className="text-[11px] text-taupe-200 truncate">AI Portfolio Assistant • Powered by RAG</p>
+                <p className="text-[11px] text-taupe-200 truncate">AI Assistant • Powered by RAG</p>
               </div>
+              
+              {/* Expand / Minimize Toggle Button */}
+              <button
+                onClick={() => setIsExpanded((prev) => !prev)}
+                className="p-1.5 rounded-full hover:bg-sand-100/80 text-taupe-200 hover:text-espresso-100 transition-colors hidden sm:flex"
+                title={isExpanded ? "Thu nhỏ cửa sổ" : "Mở rộng cửa sổ sang trái"}
+                aria-label="Toggle Expand"
+              >
+                {isExpanded ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+              </button>
+
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-1.5 rounded-full hover:bg-sand-100/80 text-taupe-200 hover:text-espresso-100 transition-colors"
@@ -211,7 +374,7 @@ const ChatbotWidget = () => {
                   <div className="w-16 h-16 rounded-full overflow-hidden mb-3 relative">
                     <div className="absolute -inset-[2px] rounded-full bg-gradient-to-tr from-gold-300 to-gold-500" />
                     <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-cream-50">
-                      <img src={AVATAR_SRC} alt="Dx9029" className="w-full h-full object-cover" />
+                      <img src={AVATAR_SRC} alt="Vinh Chatbot" className="w-full h-full object-cover" />
                     </div>
                   </div>
                   <h4 className="text-base font-bold text-espresso-100 font-display mb-1">
@@ -261,13 +424,13 @@ const ChatbotWidget = () => {
                     </div>
                   )}
                   <div
-                    className={`max-w-[75%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${
+                    className={`max-w-[82%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${
                       msg.role === 'user'
                         ? 'bg-gradient-to-br from-coffee-300 to-coffee-400 text-white rounded-br-md shadow-md'
                         : 'bg-white border border-sand-100 text-espresso-100/90 rounded-bl-md shadow-sm'
                     }`}
                   >
-                    <div className="whitespace-pre-wrap break-words">{msg.content}</div>
+                    <FormattedMessage content={msg.content} isUser={msg.role === 'user'} />
                     <div className={`text-[10px] mt-1.5 ${msg.role === 'user' ? 'text-white/50' : 'text-taupe-200/50'}`}>
                       {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </div>
@@ -333,7 +496,7 @@ const ChatbotWidget = () => {
                 </button>
               </div>
               <p className="text-[10px] text-taupe-200/40 text-center mt-1.5">
-                Powered by RAG • Gemini 2.5 Flash • PineconeDB
+                Powered by RAG • Gemini 3.6 Flash • Vector DB
               </p>
             </form>
           </motion.div>

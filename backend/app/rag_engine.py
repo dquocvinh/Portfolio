@@ -9,8 +9,9 @@ Pipeline:
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.chains import RetrievalQA
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
 from pinecone import Pinecone
 
 from . import config
@@ -21,9 +22,9 @@ SYSTEM_PROMPT_TEMPLATE = """You are Dx9029, a friendly and professional AI assis
 Your role is to help visitors (recruiters, employers, collaborators) learn about Vinh's background, skills, projects, experience, and contact information.
 
 Rules:
-1. Answer ONLY based on the provided context. If the answer is not in the context, say "I don't have that specific information, but you can reach out to Vinh directly at duongquocvinh9029@gmail.com or via Zalo: 0559149285".
+1. Answer ONLY based on the provided context. If the answer is not in the context, politely state that you don't have that specific information, but they can reach out to Vinh directly via Email: duongquocvinh9029@gmail.com or Zalo: 0559149285.
 2. Be concise, professional, and helpful.
-3. Reply in the SAME LANGUAGE as the user's question (Vietnamese or English).
+3. CRITICAL: You MUST reply in the EXACT SAME LANGUAGE as the user's question. If the user asks in Vietnamese, your entire response must be in Vietnamese. If in English, reply in English.
 4. When listing projects or skills, format them nicely.
 5. Always be positive and highlight Vinh's strengths.
 6. If asked about hiring/availability, mention that Vinh is currently open for internships.
@@ -75,15 +76,19 @@ def get_vector_store() -> PineconeVectorStore:
     return _vector_store
 
 
-def get_qa_chain() -> RetrievalQA:
-    """Get or create the RAG QA chain (singleton)."""
+def format_docs(docs) -> str:
+    """Format retrieved documents into a single text block."""
+    return "\n\n".join(doc.page_content for doc in docs)
+
+
+def get_qa_chain():
+    """Get or create the RAG QA chain (singleton) using LCEL."""
     global _qa_chain
     if _qa_chain is None:
         llm = ChatGoogleGenerativeAI(
             model=config.GEMINI_MODEL,
             google_api_key=config.GOOGLE_API_KEY,
             temperature=0.3,
-            convert_system_message_to_human=True,
         )
 
         retriever = get_vector_store().as_retriever(
@@ -91,12 +96,11 @@ def get_qa_chain() -> RetrievalQA:
             search_kwargs={"k": config.RETRIEVAL_TOP_K},
         )
 
-        _qa_chain = RetrievalQA.from_chain_type(
-            llm=llm,
-            chain_type="stuff",
-            retriever=retriever,
-            return_source_documents=False,
-            chain_type_kwargs={"prompt": PROMPT},
+        _qa_chain = (
+            {"context": retriever | format_docs, "question": RunnablePassthrough()}
+            | PROMPT
+            | llm
+            | StrOutputParser()
         )
     return _qa_chain
 
@@ -107,5 +111,5 @@ async def ask(question: str) -> str:
     from Pinecone, and generate an answer with Gemini.
     """
     chain = get_qa_chain()
-    result = chain.invoke({"query": question})
-    return result.get("result", "Sorry, I couldn't generate an answer.")
+    result = chain.invoke(question)
+    return result if isinstance(result, str) else str(result)
