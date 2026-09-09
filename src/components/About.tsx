@@ -8,7 +8,7 @@ const PORTRAIT_PHOTO = `${BASE_URL}portrait-photo.png`;
 const About = () => (
   <Section id="about">
     <SectionTitle subtitle="Get to know me better">About Me</SectionTitle>
-    <div className="grid md:grid-cols-2 gap-16 items-center">
+    <div className="grid md:grid-cols-2 gap-16 items-start">
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}

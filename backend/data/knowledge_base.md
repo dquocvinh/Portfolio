@@ -114,6 +114,12 @@ Key highlights:
 - **Link**: http://dquocvinh.great-site.net/index.php
 - **Type**: Web Development / E-commerce
 
+### 7. Dx9029 AI Portfolio Assistant & RAG System
+- **Description**: Developed a custom RAG-powered chatbot widget for Vinh's portfolio website. Uses a FastAPI backend with Pinecone Vector Database, HuggingFace embeddings (`all-MiniLM-L6-v2`), and Gemini 2.5 Flash LLM to answer visitor questions in real-time about Vinh's experience, skills, and projects in both English and Vietnamese.
+- **Tech Stack**: React, TypeScript, Tailwind CSS, FastAPI, LangChain, PineconeDB, HuggingFace, Gemini 2.5 Flash, Render, GitHub Pages
+- **Link**: https://github.com/vinh9029/Portfolio
+- **Type**: RAG Application / Portfolio Integration
+
 ---
 
 ## Certificates
