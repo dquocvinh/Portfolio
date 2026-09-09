@@ -60,8 +60,9 @@ const FormattedMessage: React.FC<{ content: string; isUser: boolean }> = ({ cont
   const lines = content.split('\n');
 
   const renderFormattedText = (text: string) => {
-    // Regex hỗ trợ: Markdown Link [Label](URL), Bold (**text**), Italics (*text*)
-    const parts = text.split(/(\[.*?\]\(https?:\/\/[^\s\)]+\)|\*\*.*?\*\*|\*.*?\*)/g);
+    // Split by Markdown links, Bold (**text**), or Italics (*text*)
+    // Supporting both *text* and single trailing asterisk like "Bằng cấp*:"
+    const parts = text.split(/(\[.*?\]\(https?:\/\/[^\s\)]+\)|\*\*.*?\*\*|\*[^\*\n]+?\*|(?<=\b[^\*\s]+)\*)/g);
     return parts.map((part, index) => {
       // Markdown Link [Label](URL)
       const linkMatch = part.match(/^\[(.*?)\]\((https?:\/\/[^\s\)]+)\)$/);
@@ -78,19 +79,25 @@ const FormattedMessage: React.FC<{ content: string; isUser: boolean }> = ({ cont
           </a>
         );
       }
-      if (part.startsWith('**') && part.endsWith('**')) {
+      // Bold **text**
+      if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
         return (
-          <strong key={index} className="font-semibold text-espresso-100">
+          <strong key={index} className="font-bold text-espresso-100">
             {part.slice(2, -2)}
           </strong>
         );
       }
-      if (part.startsWith('*') && part.endsWith('*')) {
+      // Italics *text*
+      if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {
         return (
-          <em key={index} className="italic text-espresso-100/85">
+          <em key={index} className="italic text-espresso-100 font-medium">
             {part.slice(1, -1)}
           </em>
         );
+      }
+      // Trailing single asterisk like "Bằng cấp*:" -> highlight label in bold
+      if (part === '*') {
+        return null; // hide raw asterisk if matched
       }
       return part;
     });

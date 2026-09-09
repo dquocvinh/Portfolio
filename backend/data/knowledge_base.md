@@ -4,7 +4,7 @@
 
 - **Full Name**: Dương Quốc Vinh (Vinh Duong)
 - **Nickname/Brand**: DQuocVinh / Dx9029
-- **Role**: AI Engineering Student
+- **Role**: AI Engineering Senior Student (Sinh viên năm 4 / năm cuối)
 - **Tagline**: "Building Intelligence from Data."
 - **Bio**: Hi, I'm Vinh. An AI Engineering Student passionate about Machine Learning, Deep Learning, and solving real-world problems with code.
 - **Quote**: "I don't just build models — I build solutions that people can actually use." — From research to production.
@@ -166,7 +166,7 @@ Key highlights:
 
 ### B.Sc. Computer Science — AI Specialization (2023 – Present)
 - **Organization**: Ton Duc Thang University, Ho Chi Minh City
-- **Description**: Core coursework: Deep Learning, Natural Language Processing, Computer Vision, Machine Learning, Data Structures & Algorithms, Database Systems. Expected graduation: 2027.
+- **Description**: Core coursework: Deep Learning, Natural Language Processing, Computer Vision, Machine Learning, Data Structures & Algorithms, Database Systems. Expected graduation: 2027 (Currently a 4th-year / Senior student - Sinh viên năm 4 / năm cuối).
 
 ---
 

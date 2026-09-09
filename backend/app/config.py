@@ -13,15 +13,15 @@ load_dotenv(_backend_dir / ".env")
 
 # --- Google Gemini ---
 GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
-GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3.6-flash")
+GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
 # --- Pinecone ---
 PINECONE_API_KEY: str = os.getenv("PINECONE_API_KEY", "")
 PINECONE_INDEX_NAME: str = os.getenv("PINECONE_INDEX_NAME", "portfolio-rag")
 
-# --- HuggingFace Embeddings ---
+# --- Google Embeddings (gemini-embedding-2, 3072-dim) ---
 EMBEDDING_MODEL: str = os.getenv(
-    "EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+    "EMBEDDING_MODEL", "models/gemini-embedding-2"
 )
 
 # --- Knowledge Base ---
