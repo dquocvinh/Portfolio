@@ -34,9 +34,10 @@ const Certificates = () => {
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6, scale: 1.01 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white/60 backdrop-blur-sm rounded-2xl border border-sand-100 hover:border-coffee-300/40 hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col"
+              transition={{ delay: idx * 0.1, duration: 0.3 }}
+              className="bg-white/60 backdrop-blur-sm rounded-2xl border border-sand-100 hover:border-gold-300/60 hover:bg-white/80 hover:shadow-2xl hover:shadow-coffee-300/15 transition-all duration-300 group overflow-hidden flex flex-col cursor-pointer"
             >
               <div
                 onClick={() => setSelectedCert(cert)}

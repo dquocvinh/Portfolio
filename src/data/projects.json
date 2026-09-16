@@ -2,7 +2,7 @@
     {
         "title": "Mental Health Screening & AI Virtual Assistant",
         "desc": "Engineered a 5-layer end-to-end clinical AI system integrating passive NLP analytics with standardized psychometric questionnaires (PHQ-9 & GAD-7). Fine-tuned BERT on 103K+ records to classify 7 psychological states (83.6%–88.8% accuracy). Built a therapeutic RAG assistant grounded in CBT manuals with an ethical MIND-SAFE crisis override gate routing high-risk queries to emergency services.",
-        "link": "https://github.com/dquocvinh/mental-health-project",
+        "link": "https://github.com/vinh9029/mental-health-project",
         "tags": [
             "BERT",
             "RAG",
@@ -27,7 +27,7 @@
             "TypeScript"
         ],
         "color": "from-coffee-300 to-gold-400",
-        "image": "/projects/dx-community.png"
+        "image": "/projects/dx9029_portfolio_chatbot.png"
     },
     {
         "title": "Vi-VQA Animal – Visual Question Answering",
@@ -57,6 +57,19 @@
         ],
         "color": "from-coffee-300 to-gold-400",
         "image": "/projects/heart-prediction.png"
+    },
+    {
+        "title": "National Defense & Security Education App",
+        "desc": "Created an AI-powered educational platform for national defense and security studies. Features interactive quizzes and an AI Q&A system built with Google AI Studio for personalized learning assistance.",
+        "link": "https://gdpq-an-ninh-benunu.ai.studio",
+        "tags": [
+            "Google AI Studio",
+            "EdTech",
+            "AI Q&A",
+            "Interactive Quiz"
+        ],
+        "color": "from-coffee-300 to-gold-400",
+        "image": "/projects/national-defense.png"
     },
     {
         "title": "DX Community",

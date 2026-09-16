@@ -32,9 +32,14 @@ const Hero = () => (
       transition={{ duration: 0.8, ease: 'easeOut' }}
       className="relative z-10 max-w-4xl"
     >
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 border border-coffee-300/30 rounded-full bg-coffee-300/10 text-coffee-300 text-sm font-medium tracking-wide shadow-[0_0_15px_rgba(200,150,62,0.2)] hover:bg-coffee-300/20 hover:border-coffee-300/50 transition-all cursor-default backdrop-blur-sm">
-        <span className="w-2 h-2 rounded-full bg-coffee-300 animate-pulse"></span>
-        AVAILABLE FOR INTERNSHIPS
+      <div className="inline-flex items-center gap-2.5 px-4 py-1.5 mb-6 border border-gold-300/40 rounded-full bg-gold-300/10 text-coffee-300 text-sm font-medium tracking-wide shadow-[0_0_15px_rgba(200,150,62,0.25)] hover:bg-gold-300/20 hover:border-gold-300/60 transition-all cursor-default backdrop-blur-sm group">
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-300 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-gold-400 shadow-[0_0_8px_#c8963e]"></span>
+        </span>
+        <span className="bg-gradient-to-r from-coffee-300 via-gold-400 to-coffee-600 bg-clip-text text-transparent font-semibold tracking-wider">
+          AVAILABLE FOR INTERNSHIPS
+        </span>
       </div>
 
       <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-espresso-100 mb-8 tracking-tight leading-tight min-h-[120px] md:min-h-[180px] font-display">

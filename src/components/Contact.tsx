@@ -17,6 +17,11 @@ const Contact = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-espresso-100 mb-6 relative z-10 font-display">
           Let's Work Together
         </h2>
+        
+        {/* White gradient shine background overlay */}
+        <div className="absolute -inset-y-[100%] -left-[50%] w-[200%] h-[300%] bg-gradient-to-tr from-transparent via-white/40 to-transparent transform -rotate-12 pointer-events-none blur-sm" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gold-300/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
+
         <p className="text-taupe-200 mb-10 max-w-xl mx-auto text-lg relative z-10">
           I'm currently looking for internship opportunities or collaboration on AI projects.
           Feel free to reach out!
