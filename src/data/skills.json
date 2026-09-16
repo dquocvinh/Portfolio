@@ -1,22 +1,48 @@
 [
   {
-    "category": "Core AI & ML",
+    "category": "AI & Deep Learning",
     "icon": "Brain",
-    "items": ["PyTorch", "TensorFlow", "Scikit-learn", "OpenCV", "Transformers", "LLMs"]
-  },
-  {
-    "category": "Languages",
-    "icon": "Code2",
-    "items": ["Python", "TypeScript", "SQL"]
+    "items": [
+      "PyTorch",
+      "HuggingFace",
+      "BERT",
+      "BLIP",
+      "Scikit-learn",
+      "LLMs"
+    ]
   },
   {
     "category": "AI Engineering",
     "icon": "Database",
-    "items": ["Pandas", "NumPy", "Langchain", "LangGraph", "Vector DBs", "Neo4J"]
+    "items": [
+      "LangChain",
+      "RAG",
+      "FAISS",
+      "Pinecone",
+      "ChromaDB",
+      "Gemini API"
+    ]
   },
   {
-    "category": "DevOps & Tools",
+    "category": "Web & Backend",
+    "icon": "Code2",
+    "items": [
+      "Python",
+      "TypeScript",
+      "FastAPI",
+      "React",
+      "Next.js"
+    ]
+  },
+  {
+    "category": "MLOps & Tools",
     "icon": "Terminal",
-    "items": ["Docker", "Git", "Linux", "AWS", "CI/CD"]
+    "items": [
+      "Git / GitHub",
+      "Docker",
+      "Linux",
+      "Render",
+      "Kaggle GPU"
+    ]
   }
 ]

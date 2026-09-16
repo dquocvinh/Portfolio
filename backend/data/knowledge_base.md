@@ -153,21 +153,9 @@ Key highlights:
 
 ## Experience
 
-### AI/ML Project Lead (2026)
-- **Organization**: Ton Duc Thang University — Capstone Project
-- **Description**: Led the development of a mental health screening system using BERT and RAG architecture. Designed the ML pipeline, trained classification models, and integrated an LLM-powered chatbot into a React web application deployed on Netlify.
-
-### Deep Learning & NLP Researcher (2025 – 2026)
-- **Organization**: Ton Duc Thang University — Academic Projects
-- **Description**: Researched and implemented multiple architectures for Vietnamese Visual Question Answering (VQA), benchmarking CNN+LSTM, CNN+Transformer, and BLIP multimodal approaches. Applied transfer learning and fine-tuning techniques on Hugging Face models.
-
-### Full-Stack Developer & AI Integrator (2024 – 2025)
-- **Organization**: Personal & Academic Projects
-- **Description**: Built web applications integrating AI capabilities, including a community blog platform with Gemini-powered chatbot, an e-commerce website with PHP/MySQL, and an AI-driven education tool using Google AI Studio.
-
 ### B.Sc. Computer Science — AI Specialization (2023 – Present)
-- **Organization**: Ton Duc Thang University, Ho Chi Minh City
-- **Description**: Core coursework: Deep Learning, Natural Language Processing, Computer Vision, Machine Learning, Data Structures & Algorithms, Database Systems. Expected graduation: 2027 (Currently a 4th-year / Senior student - Sinh viên năm 4 / năm cuối).
+- **Organization**: Ton Duc Thang University (TDTU), Ho Chi Minh City
+- **Description**: Currently a 4th-year student (sinh viên năm 4) specializing in Artificial Intelligence. Core coursework includes Deep Learning, Natural Language Processing, Computer Vision, Machine Learning, and Database Systems. Expected graduation: 2027. Actively seeking internship opportunities in AI/ML engineering. (Chưa có kinh nghiệm đi làm chính thức, đang tìm kiếm cơ hội thực tập.)
 
 ---
 

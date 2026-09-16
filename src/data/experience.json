@@ -1,26 +1,8 @@
 [
     {
-        "year": "2026",
-        "role": "AI/ML Project Lead",
-        "org": "Ton Duc Thang University — Capstone Project",
-        "desc": "Led the development of a mental health screening system using BERT and RAG architecture. Designed the ML pipeline, trained classification models, and integrated an LLM-powered chatbot into a React web application deployed on Netlify."
-    },
-    {
-        "year": "2025 – 2026",
-        "role": "Deep Learning & NLP Researcher",
-        "org": "Ton Duc Thang University — Academic Projects",
-        "desc": "Researched and implemented multiple architectures for Vietnamese Visual Question Answering (VQA), benchmarking CNN+LSTM, CNN+Transformer, and BLIP multimodal approaches. Applied transfer learning and fine-tuning techniques on Hugging Face models."
-    },
-    {
-        "year": "2024 – 2025",
-        "role": "Full-Stack Developer & AI Integrator",
-        "org": "Personal & Academic Projects",
-        "desc": "Built web applications integrating AI capabilities, including a community blog platform with Gemini-powered chatbot, an e-commerce website with PHP/MySQL, and an AI-driven education tool using Google AI Studio."
-    },
-    {
         "year": "2023 – Present",
         "role": "B.Sc. Computer Science — AI Specialization",
         "org": "Ton Duc Thang University, Ho Chi Minh City",
-        "desc": "Core coursework: Deep Learning, Natural Language Processing, Computer Vision, Machine Learning, Data Structures & Algorithms, Database Systems. Expected graduation: 2027."
+        "desc": "Currently a 4th-year student specializing in Artificial Intelligence. Core coursework includes Deep Learning, NLP, Computer Vision, Machine Learning, and Database Systems. Expected graduation: 2027. Actively seeking internship opportunities in AI/ML engineering."
     }
 ]
