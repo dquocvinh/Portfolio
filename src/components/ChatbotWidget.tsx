@@ -18,36 +18,39 @@ const PREDEFINED_QA: { question: string; answer: string }[] = [
   {
     question: "Vinh thành thạo những công nghệ gì?",
     answer:
-      "Vinh tập trung chuyên sâu vào mảng **AI Engineering & Full-stack Development**:\n\n" +
-      "• **AI / Machine Learning**: PyTorch, LangChain, Transformers, Sentence-Transformers, RAG pipelines, OpenAI & Gemini APIs, Pinecone Vector DB.\n" +
-      "• **Backend**: Python (FastAPI, Flask), RESTful APIs, Uvicorn, Docker.\n" +
-      "• **Frontend**: React, TypeScript, Tailwind CSS, Framer Motion, Vite.\n" +
-      "• **Data & Tools**: Git, GitHub, Hugging Face Hub, Scikit-learn, Pandas, NumPy."
+      "Vinh chuyên sâu về **AI Engineering & Full-Stack Development**:\n\n" +
+      "• **AI & Deep Learning**: PyTorch, HuggingFace (BERT, BLIP), Scikit-learn, LLMs.\n" +
+      "• **AI Engineering**: LangChain, RAG pipelines, FAISS, Pinecone, ChromaDB, Gemini API.\n" +
+      "• **Web & Backend**: Python, FastAPI, TypeScript, React, Next.js.\n" +
+      "• **MLOps & Tools**: Git/GitHub, Docker, Linux, Render, Kaggle GPU."
   },
   {
     question: "Các dự án nổi bật của Vinh?",
     answer:
-      "Một số dự án tiêu biểu mà Vinh đã xây dựng:\n\n" +
-      "• **Dx9029 RAG Chatbot Portfolio**: Trợ lý AI tích hợp RAG tìm kiếm ngữ nghĩa với *Pinecone* và LLM *Gemini*, deploy backend FastAPI.\n" +
-      "• **Document Analysis & Search System**: Hệ thống tra cứu và trích xuất thông tin thông minh từ tài liệu lớn ứng dụng Embedding models.\n" +
-      "• **Computer Vision & Deep Learning Projects**: Các bài toán phân loại hình ảnh, nhận diện đối tượng được huấn luyện với *PyTorch*.\n\n" +
-      "*Bạn có thể cuộn xuống phần Projects trên website để xem demo chi tiết và source code nhé!*"
+      "3 dự án AI tiêu biểu nhất của Vinh:\n\n" +
+      "• **Mental Health Screening AI**: Fine-tuned BERT (103K+ samples, 83.6–88.8% accuracy) + RAG chatbot CBT với tính năng crisis safety gate (MIND-SAFE framework).\n" +
+      "• **Dx9029 Portfolio RAG Chatbot** *(dự án này)*: Pipeline RAG 3 giai đoạn (FAISS + Gemini Embedding), tối ưu latency ~90% (từ ~42s → ~3–5s).\n" +
+      "• **Vi-VQA Animal**: Hệ thống VQA tiếng Việt với Co-Attention Fusion (ResNet50 + BiLSTM), đạt BERTScore 0.9062.\n\n" +
+      "*Cuộn xuống phần Projects để xem demo & source code chi tiết!*"
   },
   {
     question: "Vinh có đang tìm kiếm cơ hội làm việc không?",
     answer:
-      "**Có!** Vinh hiện đang chủ động tìm kiếm các cơ hội thực tập hoặc vị trí công việc: **AI Engineer Intern / Junior AI Engineer** và **Software / Full-stack Developer**.\n\n" +
-      "• **Hình thức**: Full-time hoặc Part-time (Remote / On-site).\n" +
-      "• **Liên hệ trực tiếp**:\n" +
-      "  - 💼 LinkedIn: [Dương Quốc Vinh](https://www.linkedin.com/in/d%C6%B0%C6%A1ng-qu%E1%BB%91c-vinh-619b51412/)\n" +
-      "  - 📧 Email: **duongquocvinh9029@gmail.com**\n" +
-      "  - 📱 Zalo / Phone: **0559149285**"
+      "**Có!** Vinh đang tìm kiếm:\n\n" +
+      "• **Vị trí**: AI Engineer Intern / Junior AI Engineer hoặc Full-Stack Developer.\n" +
+      "• **Hình thức**: Full-time hoặc Part-time, Remote hoặc On-site tại TP. HCM.\n\n" +
+      "Liên hệ trực tiếp:\n" +
+      "• 💼 [LinkedIn](https://www.linkedin.com/in/d%C6%B0%C6%A1ng-qu%E1%BB%91c-vinh-619b51412/)\n" +
+      "• 📧 **duongquocvinh9029@gmail.com**\n" +
+      "• 📱 Zalo / Phone: **0559149285**"
   },
   {
     question: "Học vấn và định hướng phát triển của Vinh?",
     answer:
-      "Vinh theo học chuyên ngành liên quan đến **Công nghệ thông tin / Khoa học máy tính** với nền tảng vững chắc về Toán, Giải thuật và Trí tuệ nhân tạo.\n\n" +
-      "• **Định hướng**: Trở thành kỹ sư **AI Engineering** chuyên nghiệp, có khả năng đưa các mô hình AI/LLM hiện đại vào sản phẩm thực tế, tối ưu hiệu năng và giải quyết bài toán người dùng hiệu quả."
+      "• **Trường**: Đại học Tôn Đức Thắng (TDTU) — Chuyên ngành Khoa học Máy tính (AI).\n" +
+      "• **Năm học**: Sinh viên năm 4 (dự kiến tốt nghiệp 2027).\n" +
+      "• **Môn học cốt lõi**: Deep Learning, NLP, Computer Vision, Machine Learning, CTDL & GT.\n\n" +
+      "• **Định hướng**: Trở thành **AI Engineer** chuyên nghiệp, xây dựng các sản phẩm AI end-to-end từ nghiên cứu đến triển khai thực tế."
   }
 ];
 

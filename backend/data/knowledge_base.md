@@ -79,47 +79,53 @@ Key highlights:
 
 ## Projects
 
-### 1. Mental Health Screening & AI Support Chatbot
-- **Description**: Built an end-to-end mental health screening platform featuring a fine-tuned BERT model for psychological disorder classification and a RAG-powered chatbot using Qwen 3.1 3B for personalized mental health support. Integrated LLM-based conversational AI with a React frontend deployed on Netlify.
-- **Tech Stack**: BERT, RAG, LLM (Qwen 3B), React, LangChain, Netlify
-- **Link**: https://github.com/Vinh9029/mental-health-project
+### 1. Mental Health Screening & AI Virtual Assistant (Capstone Project)
+- **Role**: Lead AI Developer
+- **Tech Stack**: Python, PyTorch, HuggingFace (BERT), LangChain, Pinecone, ChromaDB, FastAPI, React, Next.js, TailwindCSS
+- **Link**: https://github.com/dquocvinh/mental-health-project
 - **Type**: Capstone Project / AI + Full-Stack
+- **Highlights**:
+  - Engineered a 5-layer end-to-end clinical AI system integrating passive NLP text analytics with standardized psychometric questionnaires (PHQ-9 & GAD-7) to generate dynamic composite user risk profiles.
+  - Fine-tuned a BERT-base transformer model on 103,000+ annotated text records to classify 7 emotional/psychological states, achieving 83.6%–88.8% accuracy with optimized Macro-F1 for high-risk detection.
+  - Built a therapeutic RAG virtual assistant using LangChain and Pinecone vector store, grounded in evidence-based CBT manuals to eliminate LLM hallucinations.
+  - Implemented the MIND-SAFE ethical framework with a deterministic crisis override safety gate to automatically route suicidal/high-risk queries to emergency hotlines.
 
-### 2. Vietnamese Visual Question Answering (VQA)
-- **Description**: Developed and benchmarked multiple deep learning architectures for Vietnamese VQA: (A) CNN image encoder paired with LSTM and Transformer-based text encoders trained from scratch, (B) Fine-tuned BLIP multimodal pre-trained model. Compared performance across architectures to identify optimal approach for low-resource language VQA.
-- **Tech Stack**: PyTorch, Transformers, BLIP, CNN + LSTM, Hugging Face, Deep Learning
+### 2. Dx9029 AI Portfolio Assistant & RAG System
+- **Role**: AI & Full-Stack Developer
+- **Tech Stack**: React, TypeScript, Tailwind CSS, FastAPI, LangChain, FAISS, Gemini API, Vite, GitHub Pages, Render
+- **Link**: https://github.com/dquocvinh/Portfolio
+- **Type**: RAG Application / Portfolio Integration
+- **Highlights**:
+  - Built a bilingual (English & Vietnamese) RAG chatbot combining a FastAPI backend, local FAISS vector store, and Gemini Flash LLM to answer visitor inquiries about Vinh's portfolio.
+  - Designed a 3-stage RAG pipeline: text chunking (500 tokens/chunk) → Google gemini-embedding-2 (3072-dim) → FAISS cosine similarity (Top-4) → contextual prompt augmentation → LLM generation.
+  - Optimized end-to-end latency by ~90% (from ~42s to ~3–5s) by migrating from local CPU embeddings & Pinecone cloud to Google Embedding API + local FAISS.
+  - Developed interactive React/TypeScript UI with typewriter streaming, 4 zero-cost predefined Q&A pairs, custom Markdown parsing, and automated CI/CD via GitHub Pages and Render.
+
+### 3. Vi-VQA Animal – Multimodal Visual Question Answering
+- **Role**: AI Developer / Researcher
+- **Tech Stack**: Python, PyTorch, ResNet50, BiLSTM, Transformer Decoder, Co-Attention Fusion, BLIP, MarianMT, Scikit-Learn
 - **Link**: https://github.com/523h0195-byte/Final-DeepLearning
 - **Type**: Academic Research / Deep Learning
+- **Highlights**:
+  - Engineered a custom multimodal seq2seq VQA framework for Vietnamese natural language queries on 32,400 animal image samples.
+  - Developed a Co-Attention Fusion module integrating visual features from ResNet50 CNN backbone with BiLSTM text embeddings.
+  - Achieved top benchmark performance: 0.5778 Exact Match, 0.4098 BLEU, 0.6763 ROUGE-L, 0.9062 BERTScore — significantly outperforming baseline models and zero-shot BLIP.
+  - Built an automated translation-augmented evaluation pipeline comparing fine-tuned BLIP with MarianMT for cross-lingual benchmarking.
 
-### 3. Heart Disease Prediction
-- **Description**: Developed a clinical decision support tool for heart disease risk prediction. Trained and compared 5+ ML algorithms (Random Forest, SVM, Logistic Regression, etc.) with feature importance analysis. Deployed as an interactive Streamlit web application for real-time patient risk assessment.
+### 4. Heart Disease Prediction
 - **Tech Stack**: Scikit-learn, Random Forest, Streamlit, Data Analysis, Python
 - **Link**: https://heartdisease10.streamlit.app/
-- **Type**: Machine Learning / Healthcare
+- **Description**: Developed a clinical decision support tool comparing 5+ ML algorithms for heart disease risk prediction, deployed as an interactive Streamlit web app.
 
-### 4. DX Community
-- **Description**: Built a full-stack blog community platform for sharing experiences and knowledge. Integrated an AI-powered Q&A chatbot using the Gemini API for intelligent conversational assistance within the messaging feature.
+### 5. DX Community
 - **Tech Stack**: React, Gemini API, AI Chatbot, Full-Stack, Netlify
 - **Link**: https://dxcommunity.netlify.app
-- **Type**: Full-Stack / AI Integration
-
-### 5. National Defense & Security Education App
-- **Description**: Created an AI-powered educational platform for national defense and security studies. Features interactive quizzes and an AI Q&A system built with Google AI Studio for personalized learning assistance.
-- **Tech Stack**: Google AI Studio, EdTech, AI Q&A, Interactive Quiz
-- **Link**: https://gdpq-an-ninh-benunu.ai.studio
-- **Type**: EdTech / AI
+- **Description**: Full-stack blog community platform with Gemini-powered AI Q&A chatbot integrated into messaging feature.
 
 ### 6. The Old Flavour Coffee Shop
-- **Description**: Designed and developed a full-featured e-commerce website for a local coffee shop, including product catalog, pricing management, image galleries, and contact system. Built with PHP for server-side rendering and dynamic content management.
-- **Tech Stack**: PHP, E-commerce, MySQL, Web Development
+- **Tech Stack**: PHP, MySQL, E-commerce, Web Development
 - **Link**: http://dquocvinh.great-site.net/index.php
-- **Type**: Web Development / E-commerce
-
-### 7. Dx9029 AI Portfolio Assistant & RAG System
-- **Description**: Developed a custom RAG-powered chatbot widget for Vinh's portfolio website. Uses a FastAPI backend with Pinecone Vector Database, HuggingFace embeddings (`all-MiniLM-L6-v2`), and Gemini 2.5 Flash LLM to answer visitor questions in real-time about Vinh's experience, skills, and projects in both English and Vietnamese.
-- **Tech Stack**: React, TypeScript, Tailwind CSS, FastAPI, LangChain, PineconeDB, HuggingFace, Gemini 2.5 Flash, Render, GitHub Pages
-- **Link**: https://github.com/vinh9029/Portfolio
-- **Type**: RAG Application / Portfolio Integration
+- **Description**: Full-featured e-commerce website for a local coffee shop with product catalog, pricing, and image galleries.
 
 ---
 
@@ -159,6 +165,14 @@ Key highlights:
 
 ---
 
+## Personal Interests & Hobbies (Sở thích cá nhân)
+
+- **Cờ vua (Chess)**: Vinh thích chơi cờ vua — bộ môn rèn luyện tư duy chiến lược, phân tích tình huống và khả năng lập kế hoạch dài hạn.
+- **Học tập liên tục (Continuous Learning)**: Vinh thường xuyên theo dõi và hoàn thành các khóa học online trên **Coursera** và **Udemy**, vừa để ôn tập kiến thức chuyên môn, vừa để tiếp thu những công nghệ, xu hướng mới trong lĩnh vực AI và kỹ thuật phần mềm.
+- **Personal Development & Career Growth**: Vinh quan tâm đến các chủ đề phát triển bản thân như productivity, tư duy tăng trưởng (growth mindset), kỹ năng giao tiếp và xây dựng sự nghiệp trong ngành công nghệ. Vinh chủ động đọc sách, nghe podcast và học các khóa học liên quan đến phát triển nghề nghiệp.
+
+---
+
 ## Frequently Asked Questions
 
 ### What is Vinh currently looking for? (Vinh đang tìm kiếm gì? Vinh đã có chỗ thực tập chưa?)
@@ -181,7 +195,7 @@ Ho Chi Minh City, Vietnam. He is open to remote work and relocation for the righ
 
 ### How to contact Vinh?
 - Email: duongquocvinh9029@gmail.com
-- GitHub: https://github.com/vinh9029
+- GitHub: https://github.com/dquocvinh
 - LinkedIn: https://www.linkedin.com/in/d%C6%B0%C6%A1ng-qu%E1%BB%91c-vinh-619b51412/
 - Facebook: https://www.facebook.com/8129029sng
 - Zalo: 0559149285

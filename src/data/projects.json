@@ -1,30 +1,45 @@
 [
     {
-        "title": "Mental Health Screening & AI Support Chatbot",
-        "desc": "Built an end-to-end mental health screening platform featuring a fine-tuned BERT model for psychological disorder classification and a RAG-powered chatbot using Qwen 3.1 3B for personalized mental health support. Integrated LLM-based conversational AI with a React frontend deployed on Netlify.",
-        "link": "https://github.com/Vinh9029/mental-health-project",
+        "title": "Mental Health Screening & AI Virtual Assistant",
+        "desc": "Engineered a 5-layer end-to-end clinical AI system integrating passive NLP analytics with standardized psychometric questionnaires (PHQ-9 & GAD-7). Fine-tuned BERT on 103K+ records to classify 7 psychological states (83.6%–88.8% accuracy). Built a therapeutic RAG assistant grounded in CBT manuals with an ethical MIND-SAFE crisis override gate routing high-risk queries to emergency services.",
+        "link": "https://github.com/dquocvinh/mental-health-project",
         "tags": [
             "BERT",
             "RAG",
-            "LLM (Qwen 3B)",
-            "React",
             "LangChain",
-            "Netlify"
+            "Pinecone",
+            "FastAPI",
+            "React"
         ],
         "color": "from-coffee-300 to-gold-400",
         "image": "/projects/mental-health.png"
     },
     {
-        "title": "Vietnamese Visual Question Answering",
-        "desc": "Developed and benchmarked multiple deep learning architectures for Vietnamese VQA: (A) CNN image encoder paired with LSTM and Transformer-based text encoders trained from scratch, (B) Fine-tuned BLIP multimodal pre-trained model. Compared performance across architectures to identify optimal approach for low-resource language VQA.",
+        "title": "Dx9029 AI Portfolio Assistant & RAG System",
+        "desc": "Built a bilingual (EN & VI) RAG chatbot for a portfolio website using a 3-stage pipeline: text chunking → Google gemini-embedding-2 (3072-dim) → local FAISS cosine search (Top-4) → LLM generation. Optimized end-to-end latency by ~90% (from ~42s to ~3–5s) by migrating from local CPU embeddings & Pinecone to Google Embedding API + FAISS, eliminating network round-trips and cold-start overhead.",
+        "link": "https://github.com/dquocvinh/Portfolio",
+        "tags": [
+            "FastAPI",
+            "LangChain",
+            "FAISS",
+            "Gemini API",
+            "React",
+            "TypeScript"
+        ],
+        "color": "from-coffee-300 to-gold-400",
+        "image": "/projects/dx-community.png"
+    },
+    {
+        "title": "Vi-VQA Animal – Visual Question Answering",
+        "desc": "Engineered a custom multimodal seq2seq VQA framework for Vietnamese natural language queries on 32,400 animal image samples. Developed a Co-Attention Fusion module integrating ResNet50 visual features with BiLSTM text embeddings, decoded by a Transformer decoder. Achieved top benchmark results: 0.5778 Exact Match, 0.9062 BERTScore — significantly outperforming baseline models and zero-shot BLIP.",
         "link": "https://github.com/523h0195-byte/Final-DeepLearning",
         "tags": [
             "PyTorch",
-            "Transformers",
+            "ResNet50",
+            "BiLSTM",
+            "Transformer",
             "BLIP",
-            "CNN + LSTM",
-            "Hugging Face",
-            "Deep Learning"
+            "Scikit-Learn"
         ],
         "color": "from-coffee-300 to-gold-400",
         "image": "/projects/vqa-answering.png"
@@ -56,19 +71,6 @@
         ],
         "color": "from-coffee-300 to-gold-400",
         "image": "/projects/dx-community.png"
-    },
-    {
-        "title": "National Defense & Security Education App",
-        "desc": "Created an AI-powered educational platform for national defense and security studies. Features interactive quizzes and an AI Q&A system built with Google AI Studio for personalized learning assistance.",
-        "link": "https://gdpq-an-ninh-benunu.ai.studio",
-        "tags": [
-            "Google AI Studio",
-            "EdTech",
-            "AI Q&A",
-            "Interactive Quiz"
-        ],
-        "color": "from-coffee-300 to-gold-400",
-        "image": "/projects/national-defense.png"
     },
     {
         "title": "The Old Flavour Coffee Shop",
