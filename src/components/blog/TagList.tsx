@@ -28,7 +28,7 @@ export const TagList: React.FC<TagListProps> = ({ onTagClick }) => {
             viewport={{ once: true }}
             transition={{ delay: idx * 0.05, duration: 0.3 }}
             onClick={() => onTagClick?.(topic)}
-            className="px-4 py-2 bg-white border border-sand-100 text-sm font-medium text-taupe-200 hover:border-coffee-300/40 hover:text-coffee-600 transition-colors"
+            className="px-4 py-2 bg-white border border-sand-100 text-sm font-medium text-taupe-200 hover:border-coffee-300/40 hover:text-coffee-600 rounded-full transition-colors shadow-xs"
           >
             #{topic}
           </motion.button>

@@ -15,7 +15,7 @@ export const CurrentlySection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="bg-white p-5 border border-sand-100"
+          className="bg-white p-5 border border-sand-100 rounded-2xl shadow-xs"
         >
           <div className="flex items-center gap-2 mb-3 text-coffee-400">
             <BookOpen size={16} />
@@ -31,7 +31,7 @@ export const CurrentlySection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.4 }}
-          className="bg-white p-5 border border-sand-100"
+          className="bg-white p-5 border border-sand-100 rounded-2xl shadow-xs"
         >
           <div className="flex items-center gap-2 mb-3 text-gold-500">
             <MapPin size={16} />
@@ -47,7 +47,7 @@ export const CurrentlySection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.4 }}
-          className="bg-white p-5 border border-sand-100"
+          className="bg-white p-5 border border-sand-100 rounded-2xl shadow-xs"
         >
           <div className="flex items-center gap-2 mb-3 text-taupe-300">
             <Headphones size={16} />
@@ -63,7 +63,7 @@ export const CurrentlySection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.4 }}
-          className="bg-white p-5 border border-sand-100"
+          className="bg-white p-5 border border-sand-100 rounded-2xl shadow-xs"
         >
           <div className="flex items-center gap-2 mb-3 text-coffee-600">
             <Lightbulb size={16} />

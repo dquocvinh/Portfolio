@@ -9,7 +9,8 @@ import { TableOfContents } from '../components/blog/TableOfContents';
 import { KeyTakeaways } from '../components/blog/KeyTakeaways';
 import { PersonalNote } from '../components/blog/PersonalNote';
 import { AuthorCard } from '../components/blog/AuthorCard';
-import { BlogFooter } from '../components/blog/BlogFooter';
+import { CommentsSection } from '../components/blog/CommentsSection';
+import Footer from '../components/Footer';
 import postsData from '../data/blog/posts.json';
 import type { BlogPost } from '../types/blog';
 
@@ -46,7 +47,14 @@ const BlogPostPage: React.FC = () => {
   const shareTitle = encodeURIComponent(post.title);
 
   return (
-    <div className="min-h-screen bg-cream-100 font-body relative">
+    <div className="min-h-screen bg-cream-100 font-body relative overflow-hidden">
+      {/* ── Background Image ── */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-15 z-0"
+        style={{ backgroundImage: `url('${BASE_URL}blog_hero.png')` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-cream-100/60 via-transparent to-cream-100 pointer-events-none z-0" />
+
       <ReadingProgressBar />
 
       {/* ── Minimal Navbar ── */}
@@ -61,7 +69,7 @@ const BlogPostPage: React.FC = () => {
       </nav>
 
       {/* ── Article Header ── */}
-      <header className="pt-32 pb-16 px-6 max-w-4xl mx-auto text-center">
+      <header className="pt-32 pb-16 px-6 max-w-4xl mx-auto text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -106,7 +114,7 @@ const BlogPostPage: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="max-w-6xl mx-auto px-6 mb-16"
+        className="max-w-6xl mx-auto px-6 mb-16 relative z-10"
       >
         <div className="aspect-[21/9] w-full overflow-hidden bg-cream-50">
           <img
@@ -119,7 +127,7 @@ const BlogPostPage: React.FC = () => {
       </motion.div>
 
       {/* ── Main Layout: Content + TOC ── */}
-      <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row gap-16 relative pb-20">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row gap-16 relative z-10 pb-20">
         
         {/* Content Column (max-w-[760px] to ensure readability) */}
         <motion.article 
@@ -172,6 +180,9 @@ const BlogPostPage: React.FC = () => {
               </a>
             </div>
           </div>
+
+          {/* Comments Section */}
+          <CommentsSection postSlug={post.slug} />
         </motion.article>
 
         {/* Sidebar (TOC) - Hidden on mobile, sticky on desktop */}
@@ -198,7 +209,9 @@ const BlogPostPage: React.FC = () => {
       )}
 
       {/* ── Footer ── */}
-      <BlogFooter />
+      <div className="relative z-10 bg-white">
+        <Footer />
+      </div>
     </div>
   );
 };

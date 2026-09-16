@@ -47,7 +47,7 @@ export const TableOfContents: React.FC = () => {
   if (headings.length === 0) return null;
 
   return (
-    <nav className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto">
+    <nav className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
       <h4 className="text-[10px] font-bold text-taupe-300 uppercase tracking-widest mb-4">
         On This Page
       </h4>

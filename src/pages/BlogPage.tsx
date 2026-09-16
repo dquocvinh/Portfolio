@@ -5,7 +5,7 @@ import { Search, ArrowLeft, Cpu } from 'lucide-react';
 import { BlogCard } from '../components/blog/BlogCard';
 import { TagList } from '../components/blog/TagList';
 import { CurrentlySection } from '../components/blog/CurrentlySection';
-import { BlogFooter } from '../components/blog/BlogFooter';
+import Footer from '../components/Footer';
 import postsData from '../data/blog/posts.json';
 import type { BlogPost, BlogCategory } from '../types/blog';
 
@@ -19,6 +19,9 @@ const FILTERS: { key: FilterCategory; label: string }[] = [
   { key: 'travel', label: 'Travel' },
   { key: 'experience', label: 'Experience' },
 ];
+
+const BASE_URL = import.meta.env.BASE_URL;
+const BLOG_HERO_BG = `${BASE_URL}blog_hero.png`;
 
 const BlogPage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('all');
@@ -54,15 +57,15 @@ const BlogPage: React.FC = () => {
             Portfolio
           </Link>
 
-          <Link
-            to="/"
-            className="text-xl font-bold tracking-tighter flex items-center gap-2 hover:opacity-80 transition-opacity"
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="text-xl font-bold tracking-tighter flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer bg-transparent border-none"
           >
             <Cpu className="text-coffee-600 w-6 h-6" />
             <span className="text-espresso-100">
               DQUOCVINH<span className="text-coffee-300">.AI</span>
             </span>
-          </Link>
+          </button>
 
           <div className="text-coffee-600 text-sm font-bold uppercase tracking-wider">
             Blog
@@ -72,7 +75,13 @@ const BlogPage: React.FC = () => {
 
       {/* ── Hero ── */}
       <section className="pt-32 pb-16 px-6 relative overflow-hidden">
-        {/* Subtle ambient noise/texture could go here via pseudo-element if needed */}
+        {/* Transparent Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-20 z-0"
+          style={{ backgroundImage: `url('${BLOG_HERO_BG}')` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-cream-100/50 via-transparent to-cream-100 pointer-events-none z-0" />
+
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -131,8 +140,8 @@ const BlogPage: React.FC = () => {
                 key={key}
                 onClick={() => setActiveFilter(key)}
                 className={`px-5 py-2 text-sm font-semibold transition-all whitespace-nowrap rounded-sm ${activeFilter === key
-                    ? 'bg-coffee-600 text-white shadow-sm'
-                    : 'bg-transparent text-taupe-200 hover:text-espresso-100 hover:bg-sand-50'
+                  ? 'bg-coffee-600 text-white shadow-sm'
+                  : 'bg-transparent text-taupe-200 hover:text-espresso-100 hover:bg-sand-50'
                   }`}
               >
                 {label}
@@ -148,7 +157,7 @@ const BlogPage: React.FC = () => {
               placeholder="Search stories..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white border border-sand-100 text-sm text-espresso-100 placeholder-taupe-200 focus:outline-none focus:border-coffee-300 transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 bg-white border border-sand-100 text-sm text-espresso-100 placeholder-taupe-200 rounded-full focus:outline-none focus:border-coffee-300 transition-colors shadow-xs"
             />
           </div>
         </div>
@@ -199,7 +208,7 @@ const BlogPage: React.FC = () => {
       </main>
 
       {/* ── Footer ── */}
-      <BlogFooter />
+      <Footer />
     </div>
   );
 };

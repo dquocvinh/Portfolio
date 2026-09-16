@@ -12,6 +12,7 @@
     "deploy-gh": "npm run build && npm run deploy"
   },
   "dependencies": {
+    "@giscus/react": "^3.1.0",
     "@types/react-router-dom": "^5.3.3",
     "framer-motion": "^11.2.6",
     "lucide-react": "^0.344.0",

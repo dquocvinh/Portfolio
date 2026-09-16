@@ -15,8 +15,8 @@ const Contact = () => {
       className="py-32 relative bg-cover bg-center overflow-hidden"
       style={{ backgroundImage: `url('${bgImg}')` }}
     >
-      {/* Soft warm overlay covering the whole section */}
-      <div className="absolute inset-0 bg-cream-100/90 backdrop-blur-[1px] z-0" />
+      {/* Soft warm overlay covering the whole section - 40% opacity for vibrant background preview */}
+      <div className="absolute inset-0 bg-cream-100/40 backdrop-blur-[2px] z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <SectionTitle subtitle="Let's connect">Contact Me</SectionTitle>
@@ -24,7 +24,7 @@ const Contact = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="p-8 md:p-16 rounded-3xl border border-sand-100 text-center relative overflow-hidden shadow-lg bg-white/70 backdrop-blur-md"
+          className="p-8 md:p-16 rounded-3xl border border-sand-100/50 text-center relative overflow-hidden shadow-xl bg-transparent backdrop-blur-sm"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-espresso-100 mb-6 relative z-10 font-display">
             Let's Work Together

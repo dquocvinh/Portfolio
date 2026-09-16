@@ -7,7 +7,13 @@
     "excerpt": "Chia sẻ trọn vẹn hành trình 3 tháng học và thi chứng chỉ Google Data Analytics trên Coursera – từ lý do chọn học, cách sắp xếp thời gian đến cảm nhận sau khi pass.",
     "content": "<h2>Tại sao mình chọn Google Data Analytics?</h2><p>Năm 2024, khi đang học AI Engineering, mình nhận ra rằng việc hiểu sâu về data là nền tảng không thể thiếu. Google Data Analytics Certificate trên Coursera là một trong những chứng chỉ uy tín nhất cho beginners – được công nhận bởi hơn 150 công ty tuyển dụng hàng đầu.</p><h2>Lộ trình học của mình</h2><p>Chương trình gồm 8 khóa học, mình hoàn thành trong khoảng 3 tháng với pace ~2 giờ/ngày vào buổi tối sau giờ học đại học.</p><ul><li><strong>Tháng 1:</strong> Foundations & Ask Phase – khá nhẹ nhàng, phù hợp làm quen</li><li><strong>Tháng 2:</strong> Process, Analyze – bắt đầu vào SQL và spreadsheets, thú vị hơn nhiều</li><li><strong>Tháng 3:</strong> Share, Act + Capstone – tự làm case study, phần này mình thích nhất</li></ul><h2>Công cụ sử dụng trong khóa học</h2><p>Google Sheets, BigQuery (SQL), Tableau, R Programming. Mình đặc biệt thích phần SQL và Tableau vì tính ứng dụng cao.</p><h2>Cảm nhận sau khi hoàn thành</h2><p>Chứng chỉ giúp mình có nền tảng vững chắc về data mindset. Không phải công cụ nào mình cũng dùng lại, nhưng cách tư duy về data problem-solving là thứ mình áp dụng hàng ngày trong các project AI/ML.</p><blockquote>\"Data is the new oil, but only if you know how to refine it.\"</blockquote><h2>Lời khuyên cho người muốn học</h2><p>Đừng rush qua content. Hãy làm thật kỹ phần hands-on labs và case study cuối. Đó là phần giá trị nhất để bạn có portfolio thực sự.</p>",
     "category": "learning",
-    "tags": ["Google Certificate", "Data Analytics", "Coursera", "SQL", "Tableau"],
+    "tags": [
+      "Google Certificate",
+      "Data Analytics",
+      "Coursera",
+      "SQL",
+      "Tableau"
+    ],
     "coverImage": "/blog/google-data-analytics.jpg",
     "date": "2024-11-15",
     "readTime": 7,
@@ -32,7 +38,13 @@
     "excerpt": "Chuyến đi solo đầu tiên trong cuộc đời mình – 4 ngày 3 đêm ở Đà Lạt. Không có plan cụ thể, không có bạn đồng hành, chỉ có balô và chiếc laptop.",
     "content": "<h2>Quyết định \"liều lĩnh\" nhất năm 2024</h2><p>Giữa kỳ thi cuối kỳ căng thẳng, mình quyết định đặt vé xe đi Đà Lạt một mình. Nhiều người hỏi mình \"không sợ cô đơn à?\" – câu trả lời sau chuyến đi: không, mình tìm thấy thứ quý hơn.</p><h2>Ngày 1: Đến nơi và tự làm quen</h2><p>Đến lúc 5h sáng, cái lạnh đầu tiên chào đón mình tại bến xe Đà Lạt. Hostel mình đặt ở khu vực Hòa Bình, cách chợ đêm 5 phút đi bộ. Check-in xong, mình ném balô và ra ngoài ngay – không thể lãng phí buổi sáng sớm đẹp thế này.</p><h2>Những quán cafe ẩn mình mình tìm được</h2><p>Một trong những điều thú vị nhất của solo travel là bạn có thể đi theo direct gut feeling. Mình ghé vào một quán cà phê nhỏ trên đường Hoàng Diệu, không có trên Google Maps, chủ quán là một ông cụ 70 tuổi đã làm cà phê ở đây 30 năm. Câu chuyện ông kể về Đà Lạt xưa hay hơn bất kỳ travel blog nào.</p><h2>Cung đường chinh phục một mình</h2><p>Mình thuê xe máy 100k/ngày và tự chạy qua: Hồ Tuyền Lâm, Thác Datanla, Làng Cù Lần. Một mình = muốn dừng lúc nào thì dừng, muốn ở lại chụp ảnh bao lâu cũng được.</p><blockquote>\"Solo travel không phải là cô đơn. Đó là bạn đang dành thời gian chất lượng với người quan trọng nhất trong cuộc đời mình.\"</blockquote><h2>Bài học mang về</h2><p>Mình học được cách tự quyết định nhanh hơn, tin vào bản thân hơn, và quan trọng nhất – biết mình thực sự thích gì khi không có ai influence. Chuyến đi solo tiếp theo sẽ ra Hội An vào hè này.</p>",
     "category": "travel",
-    "tags": ["Đà Lạt", "Solo Travel", "Du lịch", "Backpacking", "Việt Nam"],
+    "tags": [
+      "Đà Lạt",
+      "Solo Travel",
+      "Du lịch",
+      "Backpacking",
+      "Việt Nam"
+    ],
     "coverImage": "/blog/dalat-solo.jpg",
     "date": "2024-12-20",
     "readTime": 6,
@@ -56,7 +68,13 @@
     "excerpt": "Câu chuyện về lần đầu tiên mình submit một Pull Request vào dự án open source thực sự. Từ việc tìm issue phù hợp đến cái cảm giác khi PR được merge.",
     "content": "<h2>Sao lại sợ open source?</h2><p>Hai năm học lập trình, mình luôn dùng thư viện open source nhưng chưa bao giờ dám đóng góp lại. Lý do? Mình sợ code của mình \"không đủ tốt\", sợ bị reject, sợ reviewer comment những thứ mình không hiểu.</p><h2>Tìm issue đầu tiên phù hợp</h2><p>Mình tìm trên GitHub với filter <code>label:good-first-issue language:Python</code>. Sau 2 ngày browse, mình tìm được một bug nhỏ trong thư viện documentation của một ML project – sai typo trong docstring và một edge case trong function validate input.</p><h2>Quá trình làm PR</h2><p>Fork repo → clone về local → tạo branch mới → fix bug → viết test → push → tạo PR. Nghe đơn giản nhưng mình mất 4 tiếng chỉ để hiểu contribution guidelines của họ và setup môi trường đúng cách.</p><pre><code class=\"language-python\"># Before (bug)\ndef validate_input(data):\n    if data == None:  # Wrong! Use 'is None'\n        raise ValueError(\"Data cannot be None\")\n\n# After (fixed)\ndef validate_input(data):\n    if data is None:\n        raise ValueError(\"Data cannot be None\")</code></pre><h2>Cảm giác khi PR được merge</h2><p>3 ngày sau, maintainer comment \"LGTM! Thanks for the fix 🎉\" và merge PR của mình. Cái notification đó khiến mình hét to trong phòng trọ lúc 11 giờ đêm. Bạn cùng phòng tưởng mình điên.</p><blockquote>\"Every expert was once a beginner. Your first contribution doesn't need to be perfect, it just needs to be genuine.\"</blockquote><h2>Bài học sau trải nghiệm này</h2><p>Cộng đồng open source thân thiện hơn mình nghĩ rất nhiều. Maintainers đều rất appreciate khi có người giúp, dù là fix nhỏ. Giờ mình đã contribute vào 3 repos khác nhau và đang maintain một tool nhỏ của riêng mình.</p>",
     "category": "experience",
-    "tags": ["Open Source", "GitHub", "Python", "Developer Journey", "Community"],
+    "tags": [
+      "Open Source",
+      "GitHub",
+      "Python",
+      "Developer Journey",
+      "Community"
+    ],
     "coverImage": "/blog/open-source.jpg",
     "date": "2025-01-10",
     "readTime": 8,
@@ -78,7 +96,13 @@
     "excerpt": "Mình vừa pass TensorFlow Developer Certificate sau 2 tháng ôn luyện. Đây là review trung thực nhất về độ khó, cách ôn, và liệu nó có thực sự giá trị trong career.",
     "content": "<h2>TensorFlow Developer Certificate là gì?</h2><p>Đây là chứng chỉ chính thức từ Google/TensorFlow team, kiểm tra khả năng build và train neural networks bằng TensorFlow 2.x. Thi online, mở sách (open-book), 5 tiếng để làm 5 model khác nhau.</p><h2>Format thi như thế nào?</h2><p>5 bài toán theo thứ tự độ khó tăng dần: Basic classification → CNN → NLP → Time series. Mỗi bài bạn cần train model đạt accuracy threshold nhất định rồi submit lên hệ thống chấm tự động.</p><h2>Cách mình ôn trong 2 tháng</h2><ul><li><strong>Tháng 1:</strong> Deeplearning.AI TensorFlow Developer Specialization (Coursera)</li><li><strong>Tháng 2:</strong> Practice với <a href='https://github.com'>TF Certificate notebooks</a>, tự tạo pipeline từ đầu</li></ul><p>Tips quan trọng: Thi open-book nhưng nếu không quen code nhanh thì 5 tiếng không đủ. Phải luyện đến mức code \"muscle memory\".</p><h2>Kết quả và cảm nhận</h2><p>Pass với score gần maximum. Khó nhất là phần Time Series – mình phải tune architecture nhiều lần để hit threshold. Tổng cộng tốn khoảng $100 lệ phí thi (có scholarship cho sinh viên).</p><blockquote>\"The certificate tests your speed and accuracy under pressure. Train like you test.\"</blockquote><h2>Có đáng bỏ $100 và 2 tháng không?</h2><p>Với mình – có. Không phải vì cái badge trên LinkedIn (dù đẹp thật), mà vì quá trình ôn luyện buộc mình phải thực sự hiểu TensorFlow từ inside out. Nếu bạn đang học Deep Learning, đây là dynamic goal tốt để keep motivated.</p>",
     "category": "learning",
-    "tags": ["TensorFlow", "Deep Learning", "Certificate", "Google", "Neural Networks"],
+    "tags": [
+      "TensorFlow",
+      "Deep Learning",
+      "Certificate",
+      "Google",
+      "Neural Networks"
+    ],
     "coverImage": "/blog/tensorflow-cert.jpg",
     "date": "2025-03-05",
     "readTime": 9,
@@ -103,7 +127,14 @@
     "excerpt": "48 giờ ở Hội An với bạn bè sau mùa thi. Không phải review destination, đây là cảm xúc của một người lần đầu thấy đèn lồng Hội An lung linh trong đêm.",
     "content": "<h2>Sau mùa thi: Cần một chuyến đi</h2><p>Kết thúc đợt báo cáo đồ án cuối kỳ, nhóm 4 đứa quyết định \"reward\" bản thân bằng chuyến Hội An 2 ngày cuối tuần. Book vé xe khách từ Đà Nẵng, đặt hostel nhỏ trong phố cổ, và set off vào sáng thứ 6.</p><h2>Khoảnh khắc đầu tiên bước vào phố cổ</h2><p>Mình đã thấy ảnh Hội An nhiều lần trên mạng. Nhưng khi thực sự đứng trên cầu Nhật Bản lúc 6 giờ chiều, ánh nắng vàng đổ xuống những ngôi nhà gỗ cũ, mình hiểu tại sao người ta nói \"Hội An phải đến mới cảm nhận được.\"</p><h2>Ăn gì ở Hội An?</h2><p>Đây là phần quan trọng nhất của chuyến đi 😄. Mình thử đủ: Cao Lầu (ngon nhất là ở hàng nhỏ trong hẻm không có trên Google), Mì Quảng, Bánh Mì Phượng (queue dài nhưng xứng đáng), White Rose Dumplings.</p><h2>Đêm đèn lồng – Không thể diễn tả bằng lời</h2><p>Mình ngồi trên thuyền nhỏ thả đèn hoa đăng xuống sông Hoài. Lần đầu tiên trong nhiều tháng bận rộn, mình không nghĩ đến deadline, không nghĩ đến code – chỉ nhìn những ngọn đèn nhỏ trôi đi và cảm thấy biết ơn vì được sống khoảnh khắc này.</p><blockquote>\"Đi không phải để thoát khỏi cuộc đời, mà để nhắc bản thân cuộc đời đẹp đến mức nào.\"</blockquote><h2>Tip nhỏ cho ai sắp đến Hội An</h2><ul><li>Thuê xe đạp thay vì đi bộ – rẻ, tiện và romantic hơn</li><li>Vào phố cổ buổi sáng sớm (trước 8h) để tránh đông và có ảnh đẹp</li><li>Budget: ~500k-700k/ngày là thoải mái</li><li>Đừng quên mua đèn lồng về làm quà</li></ul>",
     "category": "travel",
-    "tags": ["Hội An", "Phố Cổ", "Du lịch", "Đèn Lồng", "Việt Nam", "Friends Trip"],
+    "tags": [
+      "Hội An",
+      "Phố Cổ",
+      "Du lịch",
+      "Đèn Lồng",
+      "Việt Nam",
+      "Friends Trip"
+    ],
     "coverImage": "/blog/hoi-an.jpg",
     "date": "2025-05-18",
     "readTime": 5,
@@ -112,28 +143,6 @@
     "metadata": {
       "location": "Hội An, Quảng Nam",
       "country": "Việt Nam"
-    }
-  },
-  {
-    "id": "blog-006",
-    "slug": "first-hackathon-experience-24h",
-    "title": "24 Giờ Hackathon Đầu Tiên – Kiệt Sức Nhưng Không Hối Hận",
-    "subtitle": "Một đêm thức trắng, 3 cốc cà phê và vô vàn bug.",
-    "excerpt": "Tham gia hackathon lần đầu tiên với đội 3 người, 24 giờ không ngủ, build một AI app từ zero. Không win nhưng thu về được thứ còn giá trị hơn giải thưởng.",
-    "content": "<h2>Đăng ký vào phút cuối</h2><p>Mình biết đến hackathon này 3 ngày trước khi diễn ra. Đăng ký team gồm mình (AI/Backend), Minh (Frontend), và Huy (Design). Không có plan cụ thể, chỉ có hứng khởi và 3 chiếc laptop.</p><h2>Chủ đề ra đề: Healthcare + AI</h2><p>Lúc 9h sáng ban tổ chức announce chủ đề. Team mình quyết định trong 10 phút: Build một AI chatbot giúp người dùng tự đánh giá sức khỏe tâm thần sơ bộ dựa trên PHQ-9, sau đó recommend resources phù hợp.</p><h2>12 giờ đầu: Hứng khởi và chaos</h2><p>Setup FastAPI backend, Minh code React frontend, Huy design Figma. Mình fine-tune prompt engineering cho Gemini API. Tất cả diễn ra smooth đến khoảng tiếng 8... khi mình phát hiện API latency quá cao và UX flow không logic.</p><p>3 tiếng tiếp theo là pivot toàn bộ architecture. Mệt nhưng adrenaline giúp mình chạy tiếp.</p><h2>3h sáng: Thực tế ập đến</h2><p>Huy ngủ gật trên bàn. Minh đang debug một CSS bug cực kỳ ngớ ngẩn với đôi mắt đỏ hoe. Mình uống lon Red Bull thứ 3 và tiếp tục train nhanh một classifier nhỏ.</p><blockquote>\"Lúc 3h sáng trong hackathon, bạn không còn làm vì tiền hay giải thưởng. Bạn làm vì tự ái và tình đồng đội.\"</blockquote><h2>Presentation và kết quả</h2><p>Demo lúc 9h sáng hôm sau. App chạy được, UX còn thô, nhưng AI logic hoạt động tốt. Team mình không vào top 3 nhưng nhận được special mention từ một mentor về \"thoughtful approach to mental health AI ethics\".</p><h2>Thứ mình mang về được</h2><ul><li>Portfolio project thực sự (sau đó develop thành Mental Health Screening project)</li><li>Kỹ năng làm việc dưới pressure cực cao</li><li>Tình bạn với 2 đứa bạn giờ là người mình tin tưởng nhất trong tech</li><li>Và biết giới hạn caffeine của bản thân là 3 lon Red Bull 😅</li></ul>",
-    "category": "experience",
-    "tags": ["Hackathon", "AI", "Teamwork", "Mental Health", "FastAPI", "Gemini API"],
-    "coverImage": "/blog/hackathon.jpg",
-    "date": "2025-06-22",
-    "readTime": 8,
-    "featured": false,
-    "keyTakeaways": [
-      "Không nên cố gắng ôm đồm quá nhiều tính năng trong 24 giờ.",
-      "Khả năng pivot nhanh chóng quyết định sự sống còn của dự án.",
-      "Đội nhóm tốt quan trọng hơn kỹ năng cá nhân xuất sắc."
-    ],
-    "metadata": {
-      "experienceType": "Hackathon"
     }
   }
 ]
