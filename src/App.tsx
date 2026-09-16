@@ -35,12 +35,30 @@ function PortfolioHome() {
 }
 
 export default function App() {
+  // Handle Giscus OAuth callback redirect when using HashRouter
+  React.useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('giscus')) {
+      const giscusParam = urlParams.get('giscus');
+      const savedSlug = sessionStorage.getItem('giscus_last_slug') || '';
+      // Clear query param and redirect back to hash route
+      const cleanUrl = window.location.origin + window.location.pathname;
+      window.history.replaceState({}, '', cleanUrl);
+      if (savedSlug) {
+        window.location.hash = `#/blog/${savedSlug}?giscus=${giscusParam}`;
+      } else {
+        window.location.hash = `#/blog?giscus=${giscusParam}`;
+      }
+    }
+  }, []);
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<PortfolioHome />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="*" element={<PortfolioHome />} />
       </Routes>
     </Router>
   );

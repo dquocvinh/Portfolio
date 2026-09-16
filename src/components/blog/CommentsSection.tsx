@@ -7,6 +7,12 @@ interface CommentsSectionProps {
 }
 
 export const CommentsSection: React.FC<CommentsSectionProps> = ({ postSlug }) => {
+  React.useEffect(() => {
+    if (postSlug) {
+      sessionStorage.setItem('giscus_last_slug', postSlug);
+    }
+  }, [postSlug]);
+
   return (
     <section className="mt-16 pt-12 border-t border-sand-100">
       <div className="flex items-center gap-3 mb-8">
