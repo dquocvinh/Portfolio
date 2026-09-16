@@ -28,7 +28,7 @@ export const CommentsSection: React.FC<CommentsSectionProps> = ({ postSlug }) =>
           repo="dquocvinh/Portfolio"
           repoId="R_kgDOTjMV0Q"
           category="Announcements"
-          categoryId="DIC_kwDOTjMV0c4DFvYv"
+          categoryId="DIC_kwDOTjMV0c4DFvYu"
           mapping="pathname"
           strict="0"
           reactionsEnabled="1"
