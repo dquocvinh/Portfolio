@@ -181,6 +181,10 @@ const ChatbotWidget = () => {
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 300);
+      // Warm up Render backend if it's sleeping (cold start optimization)
+      fetch(`${API_URL}/health`, { method: 'GET' }).catch(() => {
+        /* silent catch */
+      });
     }
   }, [isOpen]);
 
@@ -251,11 +255,17 @@ const ChatbotWidget = () => {
     setIsLoading(true);
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 60000); // 60s timeout for Render cold-starts
+
       const res = await fetch(`${API_URL}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: trimmedText }),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
 
       if (!res.ok) {
         throw new Error(`Server error: ${res.status}`);
@@ -264,10 +274,12 @@ const ChatbotWidget = () => {
       const data = await res.json();
       setIsLoading(false);
       appendBotMessageWithTyping(data.response);
-    } catch {
+    } catch (err: any) {
       setIsLoading(false);
-      const errorMsgText =
-        "Xin lỗi, hiện tại tôi đang gặp chút sự cố kết nối tới server. Bạn vui lòng thử lại sau hoặc liên hệ trực tiếp với Vinh qua Email: duongquocvinh9029@gmail.com 📧 hoặc Zalo: 0559149285 nhé!";
+      const isTimeout = err.name === 'AbortError';
+      const errorMsgText = isTimeout
+        ? "Server trên Render đang trong quá trình khởi động lại (Cold Start). Bạn vui lòng chờ khoảng 10-20 giây rồi bấm gửi lại câu hỏi giúp Vinh nhé! ⏳"
+        : "Xin lỗi, hiện tại tôi đang gặp chút sự cố kết nối tới server. Bạn vui lòng thử lại sau hoặc liên hệ trực tiếp với Vinh qua Email: duongquocvinh9029@gmail.com 📧 hoặc Zalo: 0559149285 nhé!";
       appendBotMessageWithTyping(errorMsgText);
     }
   };

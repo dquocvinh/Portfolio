@@ -26,21 +26,26 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",          # Vite dev server (vite.config.ts port)
-        "http://127.0.0.1:3000",          # Vite dev server (IP)
-        "http://localhost:5173",          # Vite dev server default
-        "http://127.0.0.1:5173",          # Vite dev server (IP)
-        "http://localhost:5174",          # Vite dev server alt
-        "http://127.0.0.1:5174",          # Vite dev server alt (IP)
-        "http://localhost:4173",          # Vite preview
-        "http://127.0.0.1:4173",          # Vite preview (IP)
-        "https://vinh9029.github.io",     # GitHub Pages
-        "https://dquocvinh.github.io",# Alternative GitHub Pages
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:4173",
+        "http://127.0.0.1:4173",
+        "https://dquocvinh.github.io",
+        "https://dquocvinh.github.io/",
+        "https://vinh9029.github.io",
+        "https://vinh9029.github.io/",
     ],
+    allow_origin_regex=r"https://.*\.github\.io",
     allow_credentials=True,
-    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+async def root():
+    return {"message": "Dx9029 Portfolio RAG API Service is running."}
 
 
 # ── Request / Response Models ────────────────────────────────────
