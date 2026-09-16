@@ -33,17 +33,23 @@ const Navbar = () => {
             DQUOCVINH<span className="text-coffee-300">.AI</span>
           </span>
         </div>
-        <div className="hidden md:flex gap-8 lg:gap-10 text-base font-semibold text-taupe-200">
+        <div className="hidden md:flex gap-8 lg:gap-10 text-base font-semibold text-taupe-200 items-center">
           {['About', 'Skills', 'Projects', 'Certificates', 'Experience', 'Contact'].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href={`/#${item.toLowerCase()}`}
               className="hover:text-coffee-300 transition-colors relative group py-1"
             >
               {item}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-coffee-300 transition-all group-hover:w-full"></span>
             </a>
           ))}
+          <a
+            href="#/blog"
+            className="px-4 py-1.5 rounded-full bg-coffee-300/10 text-coffee-600 hover:bg-coffee-300 hover:text-white transition-all font-medium border border-coffee-300/30"
+          >
+            Blog
+          </a>
         </div>
       </div>
     </motion.nav>

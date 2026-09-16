@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,8 +11,10 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import SocialContactPopup from './components/SocialContactPopup';
 import ChatbotWidget from './components/ChatbotWidget';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 
-export default function App() {
+function PortfolioHome() {
   return (
     <div className="min-h-screen font-body">
       <Navbar />
@@ -28,5 +31,17 @@ export default function App() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<PortfolioHome />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
+      </Routes>
+    </Router>
   );
 }
