@@ -35,7 +35,7 @@ app.add_middleware(
         "http://localhost:4173",          # Vite preview
         "http://127.0.0.1:4173",          # Vite preview (IP)
         "https://vinh9029.github.io",     # GitHub Pages
-        "https://523h0195-byte.github.io",# Alternative GitHub Pages
+        "https://dquocvinh.github.io",# Alternative GitHub Pages
     ],
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],

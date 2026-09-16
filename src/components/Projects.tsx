@@ -33,7 +33,7 @@ const Projects = () => {
       </div>
       <div className="text-center mt-12">
         <a
-          href="https://github.com/vinh9029"
+          href="https://github.com/dquocvinh"
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/80 backdrop-blur-md border border-sand-100 hover:border-coffee-300/50 hover:bg-sand-50 text-espresso-100 hover:text-espresso-100 rounded-full font-bold tracking-wide transition-all shadow-lg hover:shadow-coffee-300/20 hover:-translate-y-1 group"

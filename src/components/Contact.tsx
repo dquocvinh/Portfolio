@@ -32,7 +32,7 @@ const Contact = () => {
           </a>
           <div className="flex justify-center gap-4">
             <a
-              href="https://github.com/vinh9029"
+              href="https://github.com/dquocvinh"
               target="_blank"
               rel="noreferrer"
               className="p-4 bg-white/80 backdrop-blur-md rounded-full hover:bg-sand-50 hover:text-coffee-300 transition-all text-taupe-200 border border-sand-100 hover:border-coffee-300/50 hover:-translate-y-1 shadow-lg hover:shadow-coffee-300/20 group"
