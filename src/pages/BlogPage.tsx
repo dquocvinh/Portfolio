@@ -6,6 +6,7 @@ import { BlogCard } from '../components/blog/BlogCard';
 import { TagList } from '../components/blog/TagList';
 import { CurrentlySection } from '../components/blog/CurrentlySection';
 import Footer from '../components/Footer';
+import ChatbotWidget from '../components/ChatbotWidget';
 import postsData from '../data/blog/posts.json';
 import type { BlogPost, BlogCategory } from '../types/blog';
 
@@ -22,6 +23,7 @@ const FILTERS: { key: FilterCategory; label: string }[] = [
 
 const BASE_URL = import.meta.env.BASE_URL;
 const BLOG_HERO_BG = `${BASE_URL}blog_hero.png`;
+const SIGNATURE_IMG = `${BASE_URL}signature.png`;
 
 const BlogPage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('all');
@@ -67,9 +69,22 @@ const BlogPage: React.FC = () => {
             </span>
           </button>
 
-          <div className="text-coffee-600 text-sm font-bold uppercase tracking-wider">
-            Blog
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="flex items-center gap-3"
+          >
+            <img
+              src={SIGNATURE_IMG}
+              alt="Quoc Vinh's signature"
+              className="h-8 w-auto object-contain opacity-100"
+            />
+            <span className="w-px h-5 bg-sand-200" />
+            <span className="text-coffee-600 text-xs font-bold uppercase tracking-wider">
+              Blogs
+            </span>
+          </motion.div>
         </div>
       </nav>
 
@@ -209,6 +224,7 @@ const BlogPage: React.FC = () => {
 
       {/* ── Footer ── */}
       <Footer />
+      <ChatbotWidget context="blog" />
     </div>
   );
 };

@@ -199,3 +199,33 @@ Ho Chi Minh City, Vietnam. He is open to remote work and relocation for the righ
 - LinkedIn: https://www.linkedin.com/in/d%C6%B0%C6%A1ng-qu%E1%BB%91c-vinh-619b51412/
 - Facebook: https://www.facebook.com/8129029sng
 - Zalo: 0559149285
+
+---
+
+## Blog Posts (Bài viết trên Blog cá nhân)
+
+Vinh viết blog cá nhân chia sẻ về hành trình học tập, du lịch, và trải nghiệm trong ngành tech. Blog có thể truy cập tại phần Blogs trên portfolio website.
+
+### Blog 1: Hành Trình Chinh Phục Google AI Professional Certificate
+- **Category**: Learning
+- **Tags**: Google Certificate, AI, Coursera, Gemini, Prompt Engineering
+- **Summary**: Chia sẻ hành trình học và hoàn thành chứng chỉ Google AI Professional Certificate trên Coursera – chuỗi 8 khóa học xây dựng AI fluency, từ nền tảng đến ứng dụng thực tế, tạo ra 20+ giải pháp AI. Vinh hoàn thành trong khoảng 8 tuần.
+- **Key Takeaways**: AI fluency là tư duy giải quyết vấn đề bằng AI. Hands-on projects mới là phần giá trị nhất. Prompt Engineering là kỹ năng nền tảng bắt buộc.
+
+### Blog 2: Lần Đầu Một Mình Đi Đà Lạt – Cô Đơn Hay Tự Do?
+- **Category**: Travel
+- **Tags**: Đà Lạt, Solo Travel, Du lịch, Backpacking, Việt Nam
+- **Summary**: Chuyến solo travel đầu tiên – 4 ngày 3 đêm ở Đà Lạt. Không có plan cụ thể, không có bạn đồng hành. Vinh chia sẻ về quán cafe ẩn mình, cung đường chinh phục một mình, và bài học về sự tự do.
+- **Key Takeaways**: Solo travel giúp lắng nghe bản thân tốt hơn. Đi không kế hoạch mang lại trải nghiệm bất ngờ.
+
+### Blog 3: Lần Đầu Contribute vào Open Source – Hồi Hộp Hơn Mình Nghĩ
+- **Category**: Experience
+- **Tags**: Open Source, GitHub, Python, Developer Journey, Community
+- **Summary**: Câu chuyện lần đầu submit Pull Request vào dự án open source. Từ tìm issue phù hợp (good-first-issue), fork repo, fix bug, viết test, đến cảm giác khi PR được merge.
+- **Key Takeaways**: Không cần là chuyên gia mới đóng góp Open Source. Bắt đầu từ bug nhỏ hoặc documentation.
+
+### Blog 4: Hội An Cuối Tuần – Phố Cổ Dưới Ánh Đèn Lồng
+- **Category**: Travel
+- **Tags**: Hội An, Phố Cổ, Du lịch, Đèn Lồng, Việt Nam, Friends Trip
+- **Summary**: 48 giờ ở Hội An với bạn bè sau mùa thi. Cảm xúc lần đầu thấy đèn lồng Hội An lung linh trong đêm, thả đèn hoa đăng trên sông Hoài.
+- **Key Takeaways**: Budget ~500k-700k/ngày là thoải mái. Vào phố cổ buổi sáng sớm trước 8h để tránh đông.

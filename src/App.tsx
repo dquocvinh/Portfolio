@@ -15,6 +15,21 @@ import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 
 function PortfolioHome() {
+  React.useEffect(() => {
+    const hash = window.location.hash;
+    if (hash && hash.includes('/')) {
+      const sectionId = hash.split('/')[1]?.toLowerCase();
+      if (sectionId) {
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 200);
+      }
+    }
+  }, []);
+
   return (
     <div className="min-h-screen font-body">
       <Navbar />

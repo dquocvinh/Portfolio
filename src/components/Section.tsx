@@ -10,7 +10,7 @@ interface SectionProps {
 export const Section = ({ children, id, className = '', style }: SectionProps) => (
   <section
     id={id}
-    className={`py-24 px-6 md:px-12 relative bg-no-repeat bg-cover bg-center ${className}`}
+    className={`py-24 px-6 md:px-12 relative bg-no-repeat bg-cover bg-center scroll-mt-20 ${className}`}
     style={style}
   >
     {style?.backgroundImage && (

@@ -11,6 +11,39 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const sectionId = id.toLowerCase();
+
+    // Check if on portfolio home page
+    const isHomePage =
+      window.location.hash === '' ||
+      window.location.hash === '#/' ||
+      window.location.hash.startsWith('#/?') ||
+      window.location.hash.startsWith('#/about') ||
+      window.location.hash.startsWith('#/skills') ||
+      window.location.hash.startsWith('#/projects') ||
+      window.location.hash.startsWith('#/certificates') ||
+      window.location.hash.startsWith('#/experience') ||
+      window.location.hash.startsWith('#/contact');
+
+    if (isHomePage) {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', `/#/${sectionId}`);
+      }
+    } else {
+      window.location.href = `/#/${sectionId}`;
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -37,7 +70,8 @@ const Navbar = () => {
           {['About', 'Skills', 'Projects', 'Certificates', 'Experience', 'Contact'].map((item) => (
             <a
               key={item}
-              href={`/#${item.toLowerCase()}`}
+              href={`/#/${item.toLowerCase()}`}
+              onClick={(e) => handleNavClick(e, item)}
               className="hover:text-coffee-300 transition-colors relative group py-1"
             >
               {item}
@@ -48,7 +82,7 @@ const Navbar = () => {
             href="#/blog"
             className="px-4 py-1.5 rounded-full bg-coffee-300/10 text-coffee-600 hover:bg-coffee-300 hover:text-white transition-all font-medium border border-coffee-300/30"
           >
-            Blog
+            Blogs
           </a>
         </div>
       </div>

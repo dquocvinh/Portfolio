@@ -1,35 +1,36 @@
 [
   {
     "id": "blog-001",
-    "slug": "google-data-analytics-certificate-journey",
-    "title": "Hành Trình Chinh Phục Google Data Analytics Certificate",
-    "subtitle": "Từ những con số khô khan đến những câu chuyện có ý nghĩa.",
-    "excerpt": "Chia sẻ trọn vẹn hành trình 3 tháng học và thi chứng chỉ Google Data Analytics trên Coursera – từ lý do chọn học, cách sắp xếp thời gian đến cảm nhận sau khi pass.",
-    "content": "<h2>Tại sao mình chọn Google Data Analytics?</h2><p>Năm 2024, khi đang học AI Engineering, mình nhận ra rằng việc hiểu sâu về data là nền tảng không thể thiếu. Google Data Analytics Certificate trên Coursera là một trong những chứng chỉ uy tín nhất cho beginners – được công nhận bởi hơn 150 công ty tuyển dụng hàng đầu.</p><h2>Lộ trình học của mình</h2><p>Chương trình gồm 8 khóa học, mình hoàn thành trong khoảng 3 tháng với pace ~2 giờ/ngày vào buổi tối sau giờ học đại học.</p><ul><li><strong>Tháng 1:</strong> Foundations & Ask Phase – khá nhẹ nhàng, phù hợp làm quen</li><li><strong>Tháng 2:</strong> Process, Analyze – bắt đầu vào SQL và spreadsheets, thú vị hơn nhiều</li><li><strong>Tháng 3:</strong> Share, Act + Capstone – tự làm case study, phần này mình thích nhất</li></ul><h2>Công cụ sử dụng trong khóa học</h2><p>Google Sheets, BigQuery (SQL), Tableau, R Programming. Mình đặc biệt thích phần SQL và Tableau vì tính ứng dụng cao.</p><h2>Cảm nhận sau khi hoàn thành</h2><p>Chứng chỉ giúp mình có nền tảng vững chắc về data mindset. Không phải công cụ nào mình cũng dùng lại, nhưng cách tư duy về data problem-solving là thứ mình áp dụng hàng ngày trong các project AI/ML.</p><blockquote>\"Data is the new oil, but only if you know how to refine it.\"</blockquote><h2>Lời khuyên cho người muốn học</h2><p>Đừng rush qua content. Hãy làm thật kỹ phần hands-on labs và case study cuối. Đó là phần giá trị nhất để bạn có portfolio thực sự.</p>",
+    "slug": "google-ai-professional-certificate-journey",
+    "title": "Hành Trình Chinh Phục Google AI Professional Certificate",
+    "subtitle": "Từ AI fluency đến 20+ giải pháp thực tế chỉ trong 8 khóa học.",
+    "excerpt": "Chia sẻ trọn vẹn hành trình học và hoàn thành chứng chỉ Google AI Professional Certificate trên Coursera – từ lý do chọn học, nội dung 8 khóa, đến cảm nhận thực tế sau khi pass.",
+    "content": "<h2>Tại sao mình chọn Google AI Professional Certificate?</h2><p>Năm 2026, khi AI đã trở thành kỹ năng bắt buộc trong mọi ngành, mình quyết định đầu tư vào chứng chỉ <strong>Google AI Professional Certificate</strong> trên Coursera. Đây là chương trình chính thức từ Google Career Certificates, với hơn 1.5 triệu người đã enroll – chứng minh độ uy tín và giá trị thực tiễn.</p><h2>Chương trình gồm những gì?</h2><p>Google AI Professional Certificate là chuỗi 8 khóa học (8 course series), thiết kế để giúp bạn xây dựng AI fluency từ nền tảng đến ứng dụng thực tế. Mục tiêu: tạo ra 20+ giải pháp AI có thể dùng ngay trong công việc.</p><ul><li><strong>Phần 1 – AI Foundations:</strong> Hiểu các khái niệm cốt lõi: Machine Learning, Neural Networks, Generative AI, và cách AI đang thay đổi mọi ngành nghề.</li><li><strong>Phần 2 – Prompt Engineering & AI Tools:</strong> Kỹ năng viết prompt hiệu quả, sử dụng Gemini và các công cụ AI của Google trong workflow hàng ngày.</li><li><strong>Phần 3 – AI for Business & Problem Solving:</strong> Áp dụng AI vào giải quyết vấn đề thực tế: phân tích dữ liệu, tự động hóa quy trình, và ra quyết định dựa trên data.</li><li><strong>Phần 4 – Hands-on Projects & Capstone:</strong> Xây dựng portfolio thực tế với 20+ AI solutions, từ chatbot đến hệ thống phân tích thông minh.</li></ul><h2>Trải nghiệm học tập</h2><p>Mình hoàn thành toàn bộ chương trình trong khoảng 8 tuần với pace ~1-2 giờ/ngày. Điều mình thích nhất là cách Google thiết kế khóa học: mỗi module đều có hands-on lab thực tế, không chỉ lý thuyết suông. Được access thông qua GCC Community, nên chi phí hoàn toàn miễn phí.</p><h2>Công cụ & Kiến thức thu được</h2><p>Sau khóa học, mình nắm vững: <strong>Google Gemini</strong>, Prompt Engineering, AI workflow automation, cách evaluate AI outputs, và quan trọng nhất – tư duy ứng dụng AI vào giải quyết bài toán thực tế thay vì chỉ biết dùng tool.</p><blockquote>\"AI won't replace you, but someone who knows how to use AI will.\"</blockquote><h2>Lời khuyên cho người muốn học</h2><p>Đây là chứng chỉ Beginner level – không cần background kỹ thuật sâu. Nhưng đừng xem nhẹ: hãy làm kỹ mọi hands-on project và case study. Giá trị thực sự nằm ở portfolio 20+ solutions bạn xây được, không phải cái badge trên LinkedIn.</p>",
     "category": "learning",
     "tags": [
       "Google Certificate",
-      "Data Analytics",
+      "AI",
       "Coursera",
-      "SQL",
-      "Tableau"
+      "Gemini",
+      "Prompt Engineering"
     ],
-    "coverImage": "/blog/google-data-analytics.jpg",
-    "date": "2024-11-15",
+    "coverImage": "/blog/google-ai.png",
+    "date": "2026-07-10",
     "readTime": 7,
     "featured": true,
     "keyTakeaways": [
-      "Hiểu rõ mindset về Data là quan trọng hơn việc học công cụ.",
-      "Làm thật kỹ phần hands-on labs thay vì chỉ nghe lý thuyết.",
-      "SQL và Tableau có tính ứng dụng rất cao trong thực tế."
+      "AI fluency không chỉ là biết dùng tool, mà là tư duy giải quyết vấn đề bằng AI.",
+      "Hands-on projects và case study mới là phần giá trị nhất của chương trình.",
+      "Prompt Engineering là kỹ năng nền tảng bắt buộc cho mọi ngành nghề trong thời đại AI."
     ],
-    "personalNote": "Lúc bắt đầu, mình từng nghĩ data analytics hơi nhàm chán so với AI. Nhưng sau chứng chỉ này, mình nhận ra data chính là bức tranh kể câu chuyện đằng sau mọi thuật toán AI.",
+    "personalNote": "Trước khi học, mình nghĩ mình đã biết đủ về AI vì đang học chuyên ngành rồi. Nhưng khóa học này cho mình góc nhìn hoàn toàn khác – AI không chỉ là model và code, mà là cách bạn tư duy và giải quyết vấn đề thực tế cho người dùng.",
     "metadata": {
-      "certName": "Google Data Analytics Professional Certificate",
+      "certName": "Google AI Professional Certificate",
       "certIssuer": "Google / Coursera",
       "certLevel": "Professional"
     }
   },
+
   {
     "id": "blog-002",
     "slug": "da-lat-solo-travel-first-time",
@@ -88,37 +89,7 @@
       "experienceType": "Development Milestone"
     }
   },
-  {
-    "id": "blog-004",
-    "slug": "tensorflow-developer-certificate-review",
-    "title": "Review Chi Tiết: TensorFlow Developer Certificate – Có Đáng Không?",
-    "subtitle": "2 tháng ôn luyện và 5 tiếng thi căng thẳng.",
-    "excerpt": "Mình vừa pass TensorFlow Developer Certificate sau 2 tháng ôn luyện. Đây là review trung thực nhất về độ khó, cách ôn, và liệu nó có thực sự giá trị trong career.",
-    "content": "<h2>TensorFlow Developer Certificate là gì?</h2><p>Đây là chứng chỉ chính thức từ Google/TensorFlow team, kiểm tra khả năng build và train neural networks bằng TensorFlow 2.x. Thi online, mở sách (open-book), 5 tiếng để làm 5 model khác nhau.</p><h2>Format thi như thế nào?</h2><p>5 bài toán theo thứ tự độ khó tăng dần: Basic classification → CNN → NLP → Time series. Mỗi bài bạn cần train model đạt accuracy threshold nhất định rồi submit lên hệ thống chấm tự động.</p><h2>Cách mình ôn trong 2 tháng</h2><ul><li><strong>Tháng 1:</strong> Deeplearning.AI TensorFlow Developer Specialization (Coursera)</li><li><strong>Tháng 2:</strong> Practice với <a href='https://github.com'>TF Certificate notebooks</a>, tự tạo pipeline từ đầu</li></ul><p>Tips quan trọng: Thi open-book nhưng nếu không quen code nhanh thì 5 tiếng không đủ. Phải luyện đến mức code \"muscle memory\".</p><h2>Kết quả và cảm nhận</h2><p>Pass với score gần maximum. Khó nhất là phần Time Series – mình phải tune architecture nhiều lần để hit threshold. Tổng cộng tốn khoảng $100 lệ phí thi (có scholarship cho sinh viên).</p><blockquote>\"The certificate tests your speed and accuracy under pressure. Train like you test.\"</blockquote><h2>Có đáng bỏ $100 và 2 tháng không?</h2><p>Với mình – có. Không phải vì cái badge trên LinkedIn (dù đẹp thật), mà vì quá trình ôn luyện buộc mình phải thực sự hiểu TensorFlow từ inside out. Nếu bạn đang học Deep Learning, đây là dynamic goal tốt để keep motivated.</p>",
-    "category": "learning",
-    "tags": [
-      "TensorFlow",
-      "Deep Learning",
-      "Certificate",
-      "Google",
-      "Neural Networks"
-    ],
-    "coverImage": "/blog/tensorflow-cert.jpg",
-    "date": "2025-03-05",
-    "readTime": 9,
-    "featured": true,
-    "keyTakeaways": [
-      "Thời gian 5 tiếng thi open-book vẫn đòi hỏi bạn phải code nhanh (muscle memory).",
-      "Phần Time Series thường tốn nhiều thời gian tune model nhất.",
-      "Giá trị lớn nhất không nằm ở cái huy hiệu, mà ở việc bạn thực sự nắm bắt framework."
-    ],
-    "personalNote": "Quá trình ôn thi này giúp mình tự tin hơn hẳn khi build model từ scratch thay vì copy-paste snippet như trước kia.",
-    "metadata": {
-      "certName": "TensorFlow Developer Certificate",
-      "certIssuer": "Google / TensorFlow",
-      "certLevel": "Developer"
-    }
-  },
+
   {
     "id": "blog-005",
     "slug": "hoi-an-weekend-getaway",

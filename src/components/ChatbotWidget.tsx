@@ -13,8 +13,14 @@ interface Message {
   timestamp: Date;
 }
 
-// ── Predefined Q&A (Tiết kiệm token & phản hồi tức thì bằng Tiếng Việt) ──
-const PREDEFINED_QA: { question: string; answer: string }[] = [
+export type ChatbotContext = 'portfolio' | 'blog';
+
+interface ChatbotWidgetProps {
+  context?: ChatbotContext;
+}
+
+// ── Predefined Q&A — Portfolio ──
+const PORTFOLIO_QA: { question: string; answer: string }[] = [
   {
     question: "Vinh thành thạo những công nghệ gì?",
     answer:
@@ -51,6 +57,41 @@ const PREDEFINED_QA: { question: string; answer: string }[] = [
       "• **Năm học**: Sinh viên năm 4 (dự kiến tốt nghiệp 2027).\n" +
       "• **Môn học cốt lõi**: Deep Learning, NLP, Computer Vision, Machine Learning, CTDL & GT.\n\n" +
       "• **Định hướng**: Trở thành **AI Engineer** chuyên nghiệp, xây dựng các sản phẩm AI end-to-end từ nghiên cứu đến triển khai thực tế."
+  }
+];
+
+// ── Predefined Q&A — Blog ──
+const BLOG_QA: { question: string; answer: string }[] = [
+  {
+    question: "Vinh viết blog về những chủ đề gì?",
+    answer:
+      "Blog cá nhân của Vinh chia sẻ về 3 chủ đề chính:\n\n" +
+      "• 📚 **Learning**: Hành trình chinh phục các chứng chỉ (Google AI Professional Certificate).\n" +
+      "• ✈️ **Travel**: Những chuyến du lịch đáng nhớ (Solo Đà Lạt, Hội An cùng bạn bè).\n" +
+      "• 💻 **Experience**: Trải nghiệm trong ngành tech (Lần đầu contribute Open Source).\n\n" +
+      "*Hiện có 4 bài viết, Vinh sẽ tiếp tục cập nhật thêm!*"
+  },
+  {
+    question: "Blog nào được yêu thích nhất?",
+    answer:
+      "Bài **featured** hiện tại là:\n\n" +
+      "• **Hành Trình Chinh Phục Google AI Professional Certificate** — Chia sẻ trọn vẹn hành trình học chuỗi 8 khóa trên Coursera, xây dựng AI fluency và tạo 20+ giải pháp thực tế.\n\n" +
+      "Ngoài ra các bài viết về du lịch Đà Lạt, Hội An và trải nghiệm Open Source cũng rất được chú ý."
+  },
+  {
+    question: "Vinh có bài viết nào về du lịch không?",
+    answer:
+      "Có 2 bài viết về du lịch:\n\n" +
+      "• **Lần Đầu Một Mình Đi Đà Lạt** — Chuyến solo travel 4 ngày 3 đêm, khám phá quán cafe ẩn mình và cung đường chinh phục một mình. Bài học: *\"Solo travel không phải là cô đơn, mà là dành thời gian cho chính mình.\"*\n\n" +
+      "• **Hội An Cuối Tuần** — 48 giờ ở phố cổ với bạn bè sau mùa thi, thả đèn hoa đăng trên sông Hoài. Budget chỉ ~500k-700k/ngày!\n\n" +
+      "*Click vào card bài viết để đọc chi tiết nhé!*"
+  },
+  {
+    question: "Vinh đã đạt những chứng chỉ nào qua blog?",
+    answer:
+      "Vinh đã chia sẻ hành trình chứng chỉ trên blog:\n\n" +
+      "• **Google AI Professional Certificate** (2026) — Chuỗi 8 khóa học trên Coursera, xây dựng AI fluency, Prompt Engineering, và 20+ AI solutions thực tế.\n" +
+      "*Đọc blog để xem review chi tiết và tips ôn thi từ Vinh!*"
   }
 ];
 
@@ -138,11 +179,18 @@ const FormattedMessage: React.FC<{ content: string; isUser: boolean }> = ({ cont
   );
 };
 
-const SUGGESTED_QUESTIONS = [
+const PORTFOLIO_SUGGESTED = [
   "Vinh thành thạo những công nghệ gì?",
   "Các dự án nổi bật của Vinh?",
   "Vinh có đang tìm kiếm cơ hội làm việc không?",
   "Học vấn và định hướng phát triển của Vinh?",
+];
+
+const BLOG_SUGGESTED = [
+  "Vinh viết blog về những chủ đề gì?",
+  "Blog nào được yêu thích nhất?",
+  "Vinh có bài viết nào về du lịch không?",
+  "Vinh đã đạt những chứng chỉ nào qua blog?",
 ];
 
 const TypingIndicator = () => (
@@ -161,7 +209,9 @@ const TypingIndicator = () => (
   </div>
 );
 
-const ChatbotWidget = () => {
+const ChatbotWidget = ({ context = 'portfolio' }: ChatbotWidgetProps) => {
+  const PREDEFINED_QA = context === 'blog' ? [...BLOG_QA, ...PORTFOLIO_QA] : [...PORTFOLIO_QA, ...BLOG_QA];
+  const SUGGESTED_QUESTIONS = context === 'blog' ? BLOG_SUGGESTED : PORTFOLIO_SUGGESTED;
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -338,11 +388,10 @@ const ChatbotWidget = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            className={`fixed bottom-24 right-6 z-50 transition-all duration-300 ${
-              isExpanded
-                ? 'w-[680px] max-w-[calc(100vw-3rem)] h-[680px] max-h-[calc(100vh-7.5rem)]'
-                : 'w-[380px] max-w-[calc(100vw-3rem)] h-[560px] max-h-[calc(100vh-7.5rem)]'
-            } flex flex-col rounded-2xl border border-sand-100/80 shadow-2xl overflow-hidden`}
+            className={`fixed bottom-24 right-6 z-50 transition-all duration-300 ${isExpanded
+              ? 'w-[680px] max-w-[calc(100vw-3rem)] h-[680px] max-h-[calc(100vh-7.5rem)]'
+              : 'w-[380px] max-w-[calc(100vw-3rem)] h-[560px] max-h-[calc(100vh-7.5rem)]'
+              } flex flex-col rounded-2xl border border-sand-100/80 shadow-2xl overflow-hidden`}
             style={{
               background: 'linear-gradient(135deg, rgba(250,246,239,0.97) 0%, rgba(255,253,247,0.97) 100%)',
               backdropFilter: 'blur(20px)',
@@ -363,7 +412,7 @@ const ChatbotWidget = () => {
                 </h3>
                 <p className="text-[11px] text-taupe-200 truncate">AI Assistant • Powered by RAG</p>
               </div>
-              
+
               {/* Expand / Minimize Toggle Button */}
               <button
                 onClick={() => setIsExpanded((prev) => !prev)}
@@ -403,7 +452,10 @@ const ChatbotWidget = () => {
                     Hi! I'm Dx9029 👋
                   </h4>
                   <p className="text-xs text-taupe-200 mb-5 max-w-[260px] leading-relaxed">
-                    I'm Vinh's AI assistant. Ask me anything about his skills, projects, experience, or how to get in touch!
+                    {context === 'blog'
+                      ? "I'm Vinh's AI assistant. Ask me about his blog posts, learning journey, travel stories, or anything else!"
+                      : "I'm Vinh's AI assistant. Ask me anything about his skills, projects, experience, or how to get in touch!"
+                    }
                   </p>
 
                   {/* Suggested questions */}
@@ -446,11 +498,10 @@ const ChatbotWidget = () => {
                     </div>
                   )}
                   <div
-                    className={`max-w-[82%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${
-                      msg.role === 'user'
-                        ? 'bg-gradient-to-br from-coffee-300 to-coffee-400 text-white rounded-br-md shadow-md'
-                        : 'bg-white border border-sand-100 text-espresso-100/90 rounded-bl-md shadow-sm'
-                    }`}
+                    className={`max-w-[82%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
+                      ? 'bg-gradient-to-br from-coffee-300 to-coffee-400 text-white rounded-br-md shadow-md'
+                      : 'bg-white border border-sand-100 text-espresso-100/90 rounded-bl-md shadow-sm'
+                      }`}
                   >
                     <FormattedMessage content={msg.content} isUser={msg.role === 'user'} />
                     <div className={`text-[10px] mt-1.5 ${msg.role === 'user' ? 'text-white/50' : 'text-taupe-200/50'}`}>

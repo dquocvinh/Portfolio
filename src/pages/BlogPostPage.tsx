@@ -11,6 +11,7 @@ import { PersonalNote } from '../components/blog/PersonalNote';
 import { AuthorCard } from '../components/blog/AuthorCard';
 import { CommentsSection } from '../components/blog/CommentsSection';
 import Footer from '../components/Footer';
+import ChatbotWidget from '../components/ChatbotWidget';
 import postsData from '../data/blog/posts.json';
 import type { BlogPost } from '../types/blog';
 
@@ -212,6 +213,7 @@ const BlogPostPage: React.FC = () => {
       <div className="relative z-10 bg-white">
         <Footer />
       </div>
+      <ChatbotWidget context="blog" />
     </div>
   );
 };
