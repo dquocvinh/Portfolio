@@ -11,7 +11,25 @@ const Footer: React.FC = () => {
 
   const [totalViews, setTotalViews] = useState<number | null>(null);
   const [isLoadingViews, setIsLoadingViews] = useState<boolean>(true);
-  const [onlineUsers] = useState<number>(1);
+  const [onlineUsers, setOnlineUsers] = useState<number>(1);
+
+  // Dynamic Online Users simulation (realistic 1-4 active visitors)
+  useEffect(() => {
+    // Generate a base count based on time of day for realism (1-3 users)
+    const hour = new Date().getHours();
+    const baseCount = (hour >= 8 && hour <= 23) ? Math.floor(Math.random() * 2) + 2 : 1;
+    setOnlineUsers(baseCount);
+
+    const interval = setInterval(() => {
+      // Small random fluctuation between -1 and +1, keeping min 1
+      setOnlineUsers((prev) => {
+        const delta = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
+        return Math.max(1, Math.min(5, prev + delta));
+      });
+    }, 45000); // update every 45s
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const fetchCounter = async () => {
@@ -23,13 +41,29 @@ const Footer: React.FC = () => {
           : 'https://api.counterapi.dev/v2/duong-quoc-vinhs-team-5603/dquocvinh-portfolio/up';
 
         const apiKey = import.meta.env.VITE_COUNTER_API_KEY;
-        const response = await fetch(endpoint, {
-          headers: apiKey ? { Authorization: `Bearer ${apiKey}` } : undefined,
-        });
-        const json = await response.json();
+        const headers: HeadersInit = {};
+        if (apiKey) {
+          headers['Authorization'] = `Bearer ${apiKey}`;
+        }
 
-        if (json && json.data && typeof json.data.up_count === 'number') {
-          setTotalViews(json.data.up_count);
+        let response = await fetch(endpoint, { headers });
+        let json = await response.json();
+
+        // Extract count safely from various CounterAPI response formats
+        let count = json?.data?.up_count ?? json?.up_count ?? json?.count;
+
+        // If request with API key failed or yielded no count, try fallback request without header
+        if ((count === undefined || count === null) && apiKey) {
+          response = await fetch(endpoint);
+          json = await response.json();
+          count = json?.data?.up_count ?? json?.up_count ?? json?.count;
+        }
+
+        if (typeof count === 'number') {
+          setTotalViews(count);
+          sessionStorage.setItem('dquocvinh_portfolio_visited', 'true');
+        } else if (typeof count === 'string' && !isNaN(Number(count))) {
+          setTotalViews(Number(count));
           sessionStorage.setItem('dquocvinh_portfolio_visited', 'true');
         }
       } catch (error) {
