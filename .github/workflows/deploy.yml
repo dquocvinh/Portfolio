@@ -39,6 +39,7 @@ jobs:
       - name: Build project
         env:
           VITE_API_URL: https://dx9029-backend.onrender.com
+          VITE_COUNTER_API_KEY: ${{ secrets.VITE_COUNTER_API_KEY }}
         run: npm run build
 
       - name: Setup Pages
