@@ -4,6 +4,7 @@ import { Section } from './Section';
 import { SectionTitle } from './SectionTitle';
 const BASE_URL = import.meta.env.BASE_URL;
 const PORTRAIT_PHOTO = `${BASE_URL}portrait-photo.png`;
+const RESUME_URL = `${BASE_URL}DuongQuocVinh_0559149285.pdf`;
 
 const About = () => (
   <Section id="about">
@@ -74,7 +75,7 @@ const About = () => (
         </div>
 
         <a
-          href="/DuongQuocVinh_0559149285.pdf"
+          href={RESUME_URL}
           download="DuongQuocVinh_0559149285.pdf"
           className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-coffee-300 to-gold-400 hover:from-coffee-400 hover:to-gold-300 text-white rounded-lg font-semibold transition-all shadow-lg shadow-coffee-300/25 hover:shadow-gold-300/40 hover:-translate-y-1 relative z-10"
         >
